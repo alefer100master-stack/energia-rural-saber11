@@ -1,0 +1,13 @@
+﻿Elemento,ICFES Saber 11,UPME ICEE
+Nombre,Resultados únicos Saber 11 (kgxf-xxbe) y Saber 11° 2020-2 (rnvb-vnyh),"Índice de Cobertura de Energía Eléctrica, anexos municipales 2019–2022, 2023 y 2024"
+Entidad productora,Instituto Colombiano para la Evaluación de la Educación (ICFES),Unidad de Planeación Minero Energética (UPME)
+Enlace,https://www.datos.gov.co/d/kgxf-xxbe · https://www.datos.gov.co/d/rnvb-vnyh,https://www.upme.gov.co/indice-de-cobertura-de-energia-electrica-icee/
+Licencia o autorización,Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0),Información pública publicada por entidad estatal (Ley 1712 de 2014); uso con citación de la fuente
+Método de adquisición,API SODA (Socrata) con filtro por periodo y 23 columnas,Descarga directa de los anexos .xlsx
+Fecha de descarga,2026-10-15,2026-10-15
+Periodo cubierto,"Calendario A 2019 (20194), 2020 (20204) y 2022 (20224)",2019–2024 (corte a diciembre de cada año)
+Número de registros (crudos),2.667.284,6.732
+Número de variables descargadas,23,16 (2019–2022) y 17 (2023–2024)
+Granularidad,Estudiante evaluado,Municipio–año (zona urbana y rural)
+Variable objetivo,punt_global → agregada como punt_global_rural (promedio municipal rural),— (aporta la variable explicativa icee_rural)
+Datos personales,Anonimizados por el ICFES; no se descargan fecha de nacimiento ni documento,No contiene datos personales

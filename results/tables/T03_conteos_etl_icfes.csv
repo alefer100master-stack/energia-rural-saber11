@@ -1,0 +1,10 @@
+﻿Paso,Registros antes,Registros después,Eliminados,% eliminado,Nota
+1. Eliminar filas duplicadas exactas,2667284,1583875,1083409,40.62,Duplicados completos en kgxf-xxbe (2019 y 2022)
+2. Verificar un registro por evaluado (estu_consecutivo),1583875,1583875,0,0.0,Duplicados de identificador restantes: 0
+3. Conservar resultados válidos (estado PUBLICAR),1583875,1583148,727,0.05,Excluye anulados o en investigación
+4. Conservar calendario A,1583148,1574432,8716,0.55,Los periodos 20194/20204/20224 son de calendario A
+5. Excluir jornadas sabatina y nocturna (educación de adultos),1574432,1407776,166656,10.59,Población objetivo: media regular
+6. Zona de la sede y municipio informados,1407776,1407776,0,0.0,Sin zona no es posible clasificar rural/urbano
+7. Tipos numéricos y puntaje global válido (0–500),1407776,1407776,0,0.0,Valores fuera de rango encontrados: 0
+8. Verificar fórmula del puntaje global,1407776,1407776,0,0.0,Registros que no cumplen la fórmula: 0 (no se eliminan)
+9. Normalizar llaves DIVIPOLA (5 dígitos) y codificar categorías,1407776,1407776,0,0.0,'No sabe'/'No aplica' → faltante

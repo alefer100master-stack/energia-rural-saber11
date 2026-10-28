@@ -1,0 +1,7 @@
+archivo,fuente,url,filtro,fecha_descarga,bytes,sha256
+saber11_kgxf-xxbe_periodo20194_descarga2026-10-15.csv.gz,ICFES (datos.gov.co),https://www.datos.gov.co/resource/kgxf-xxbe.csv,periodo='20194',2026-10-15,17166515,838b3abda52c3bfed269ecaecf4bd600a287112836cf93fe1e6aa9c4b4506892
+saber11_rnvb-vnyh_periodo20204_descarga2026-10-15.csv.gz,ICFES (datos.gov.co),https://www.datos.gov.co/resource/rnvb-vnyh.csv,,2026-10-15,12764696,f30728900713bf5caa1083fbb3b41f6277d7bdd6613ff48331d121af1741cdc9
+saber11_kgxf-xxbe_periodo20224_descarga2026-10-15.csv.gz,ICFES (datos.gov.co),https://www.datos.gov.co/resource/kgxf-xxbe.csv,periodo='20224',2026-10-15,16327660,e90edeb619f7c13306ca53c2618f6726535cbea4eee1bd13a198a8983c213835
+Anexo1_Calculo_ICEE_2019_2022_descarga2026-10-15.xlsx,UPME,https://docs.upme.gov.co/2025/01/Anexo1_Calculo_ICEE_2019_2022.xlsx,,2026-10-15,1137081,fb833763d754c81e002336ad2c1e77675ace814fd150d22b61ab4af2cda6bf50
+Anexo_ICEE_2023_dpto_mpio_descarga2026-10-15.xlsx,UPME,https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Anexo_ICEE_2023_dpto_mpio.xlsx,,2026-10-15,232913,795e2b08515b83885b32b9071d196f81b7cd22ae0084110452f6f9d9509a482a
+Anexo_ICEE_2024_dpto_mpio_descarga2026-10-15.xlsx,UPME,https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Anexo_ICEE_2024_dpto_mpio.xlsx,,2026-10-15,225075,531dfceb9aead7cab4d76677f7f8ac995307f3bf7977bd5e629267c43a7370b0

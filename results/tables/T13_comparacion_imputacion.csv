@@ -1,0 +1,3 @@
+﻿Método,Error promedio MAE (p.p.),Desv. estándar después (p.p.),Desv. estándar real (p.p.)
+Mediana,17.27,21.27,22.26
+KNN (5 vecinos),11.75,21.89,22.26

@@ -1,0 +1,4 @@
+﻿Paso,Registros antes,Registros después,Eliminados
+1. Municipio–año con estudiantes rurales (ICFES),2820,2820,0
+2. Cruce con ICEE (inner join DIVIPOLA + año),2820,2817,3
+3. Excluir municipio–año con menos de 10 estudiantes rurales,2817,2627,190

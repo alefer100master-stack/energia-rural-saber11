@@ -1,0 +1,7 @@
+﻿Paso,Registros antes,Registros después,Eliminados,Nota
+"1. Unir anexos 2019–2022 (con transferencias), 2023 y 2024",6732,6732,0,Hoja 'ICEE Municipal con Transf.' = resultado final UPME
+2. Normalizar código DIVIPOLA a 5 dígitos (texto),6732,6732,0,2019–2022 venía como número sin cero inicial
+3. Armonizar escala a porcentaje (0–100),6732,6732,0,2019–2023 en proporción (0–1); 2024 en %
+4. Acotar valores > 100 % (excedentes de viviendas con servicio),6732,6732,0,Registros afectados: 4
+5. Unicidad municipio–año,6732,6732,0,Duplicados: 0
+6. Recalcular VSS rural = VT × (1 − ICEE) y exigir ICEE rural informado,6732,6732,0,VSS rural negativos en el crudo: 2837; se recalcula para todos los años

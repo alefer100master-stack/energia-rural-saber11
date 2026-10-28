@@ -1,0 +1,535 @@
+{
+  "versiones": {
+    "python": "3.13.16",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2"
+  },
+  "manifiesto": [
+    {
+      "archivo": "saber11_kgxf-xxbe_periodo20194_descarga2026-10-15.csv.gz",
+      "fuente": "ICFES (datos.gov.co)",
+      "url": "https://www.datos.gov.co/resource/kgxf-xxbe.csv",
+      "filtro": "periodo='20194'",
+      "fecha_descarga": "2026-10-15",
+      "bytes": 17166515,
+      "sha256": "838b3abda52c3bfed269ecaecf4bd600a287112836cf93fe1e6aa9c4b4506892"
+    },
+    {
+      "archivo": "saber11_rnvb-vnyh_periodo20204_descarga2026-10-15.csv.gz",
+      "fuente": "ICFES (datos.gov.co)",
+      "url": "https://www.datos.gov.co/resource/rnvb-vnyh.csv",
+      "filtro": "",
+      "fecha_descarga": "2026-10-15",
+      "bytes": 12764696,
+      "sha256": "f30728900713bf5caa1083fbb3b41f6277d7bdd6613ff48331d121af1741cdc9"
+    },
+    {
+      "archivo": "saber11_kgxf-xxbe_periodo20224_descarga2026-10-15.csv.gz",
+      "fuente": "ICFES (datos.gov.co)",
+      "url": "https://www.datos.gov.co/resource/kgxf-xxbe.csv",
+      "filtro": "periodo='20224'",
+      "fecha_descarga": "2026-10-15",
+      "bytes": 16327660,
+      "sha256": "e90edeb619f7c13306ca53c2618f6726535cbea4eee1bd13a198a8983c213835"
+    },
+    {
+      "archivo": "Anexo1_Calculo_ICEE_2019_2022_descarga2026-10-15.xlsx",
+      "fuente": "UPME",
+      "url": "https://docs.upme.gov.co/2025/01/Anexo1_Calculo_ICEE_2019_2022.xlsx",
+      "filtro": "",
+      "fecha_descarga": "2026-10-15",
+      "bytes": 1137081,
+      "sha256": "fb833763d754c81e002336ad2c1e77675ace814fd150d22b61ab4af2cda6bf50"
+    },
+    {
+      "archivo": "Anexo_ICEE_2023_dpto_mpio_descarga2026-10-15.xlsx",
+      "fuente": "UPME",
+      "url": "https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Anexo_ICEE_2023_dpto_mpio.xlsx",
+      "filtro": "",
+      "fecha_descarga": "2026-10-15",
+      "bytes": 232913,
+      "sha256": "795e2b08515b83885b32b9071d196f81b7cd22ae0084110452f6f9d9509a482a"
+    },
+    {
+      "archivo": "Anexo_ICEE_2024_dpto_mpio_descarga2026-10-15.xlsx",
+      "fuente": "UPME",
+      "url": "https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Anexo_ICEE_2024_dpto_mpio.xlsx",
+      "filtro": "",
+      "fecha_descarga": "2026-10-15",
+      "bytes": 225075,
+      "sha256": "531dfceb9aead7cab4d76677f7f8ac995307f3bf7977bd5e629267c43a7370b0"
+    }
+  ],
+  "icfes_filas_crudas": 2667284,
+  "icfes_filas_crudas_por_anio": {
+    "2019": 1096524,
+    "2020": 504872,
+    "2022": 1065888
+  },
+  "icee_filas_crudas": 6732,
+  "duplicados_exactos_por_anio": {
+    "2019": 550313,
+    "2022": 533096
+  },
+  "duplicados_id_tras_paso1": 0,
+  "puntajes_fuera_de_rango": 0,
+  "global_inconsistente_formula": 0,
+  "global_consistente_pct": 100.0,
+  "icfes_filas_limpias": 1407776,
+  "icfes_filas_limpias_por_anio_zona": {
+    "2019_RURAL": 79102,
+    "2019_URBANO": 391406,
+    "2020_RURAL": 78186,
+    "2020_URBANO": 379514,
+    "2022_RURAL": 86183,
+    "2022_URBANO": 393385
+  },
+  "icee_anios_escala_0_1": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "icee_valores_mayores_100": 4,
+  "icee_vss_negativos": 2837,
+  "icee_municipios_por_anio": {
+    "2019": 1122,
+    "2020": 1122,
+    "2021": 1122,
+    "2022": 1122,
+    "2023": 1122,
+    "2024": 1122
+  },
+  "panel_sin_icee": 3,
+  "panel_sin_icee_codigos": [
+    "27086"
+  ],
+  "tasa_cruce_pct": 99.89,
+  "atipicos_tukey_n": 44,
+  "atipicos_tukey_pct": 1.56,
+  "atipicos_tukey_mediana_n_est": 42.0,
+  "no_atipicos_mediana_n_est": 50.0,
+  "n_min_estudiantes": 10,
+  "municipio_anio_pocos_estudiantes": 190,
+  "panel_filas": 2627,
+  "panel_municipios": 926,
+  "panel_filas_por_anio": {
+    "2019": 870,
+    "2020": 865,
+    "2022": 892
+  },
+  "panel_estudiantes_rurales": 242126,
+  "objetivo_media": 228.33,
+  "objetivo_sd": 24.18,
+  "objetivo_media_por_anio": {
+    "2019": 227.23,
+    "2020": 227.42,
+    "2022": 230.27
+  },
+  "objetivo_asimetria": 0.251,
+  "objetivo_normaltest_p": 1.1873785481503455e-13,
+  "icee_rural_mediana": 87.24,
+  "icee_rural_pct_en_100": 37.19,
+  "icee_rural_asimetria": -1.249,
+  "grupo_icee_n": {
+    "Baja (<70 %)": 791,
+    "Media (70–95 %)": 733,
+    "Alta (≥95 %)": 1103
+  },
+  "grupo_icee_pct": {
+    "Baja (<70 %)": 30.11,
+    "Media (70–95 %)": 27.9,
+    "Alta (≥95 %)": 41.99
+  },
+  "categoricas_por_zona": [
+    {
+      "Variable": "Estrato 0 a 2",
+      "Rural (%)": 81.1,
+      "Urbano (%)": 68.1,
+      "Diferencia (urbano − rural)": -13.0
+    },
+    {
+      "Variable": "Madre con media completa o más",
+      "Rural (%)": 38.8,
+      "Urbano (%)": 66.0,
+      "Diferencia (urbano − rural)": 27.2
+    },
+    {
+      "Variable": "Tiene internet en el hogar",
+      "Rural (%)": 37.6,
+      "Urbano (%)": 75.5,
+      "Diferencia (urbano − rural)": 37.9
+    },
+    {
+      "Variable": "Tiene computador en el hogar",
+      "Rural (%)": 32.8,
+      "Urbano (%)": 63.8,
+      "Diferencia (urbano − rural)": 31.0
+    },
+    {
+      "Variable": "Colegio oficial",
+      "Rural (%)": 94.3,
+      "Urbano (%)": 75.6,
+      "Diferencia (urbano − rural)": -18.7
+    }
+  ],
+  "nacional_rural_por_anio": {
+    "2019": 228.52,
+    "2020": 228.45,
+    "2022": 229.79
+  },
+  "nacional_urbano_por_anio": {
+    "2019": 257.5,
+    "2020": 256.88,
+    "2022": 259.63
+  },
+  "brecha_nacional_por_anio": {
+    "2019": 28.98,
+    "2020": 28.44,
+    "2022": 29.84
+  },
+  "icee_rural_nacional_por_anio": {
+    "2019": 76.13,
+    "2020": 75.09,
+    "2021": 81.48,
+    "2022": 80.56,
+    "2023": 76.74,
+    "2024": 78.28
+  },
+  "comp_pocos_estudiantes": [
+    {
+      "Alternativa": "Conservar todos",
+      "Registros": 2817,
+      "Media": 228.121,
+      "Mediana": 227.861,
+      "Desv. estándar": 24.516,
+      "Spearman con ICEE rural": 0.289
+    },
+    {
+      "Alternativa": "Excluir menos de 10 estudiantes",
+      "Registros": 2627,
+      "Media": 228.326,
+      "Mediana": 227.879,
+      "Desv. estándar": 24.18,
+      "Spearman con ICEE rural": 0.301
+    }
+  ],
+  "excluidos_icee_mediana": 81.56,
+  "incluidos_icee_mediana": 87.24,
+  "excluidos_mannwhitney_p": 0.09808249316607234,
+  "comp_imputacion": [
+    {
+      "Método": "Mediana",
+      "Error promedio MAE (p.p.)": 17.27,
+      "Desv. estándar después (p.p.)": 21.27,
+      "Desv. estándar real (p.p.)": 22.26
+    },
+    {
+      "Método": "KNN (5 vecinos)",
+      "Error promedio MAE (p.p.)": 11.75,
+      "Desv. estándar después (p.p.)": 21.89,
+      "Desv. estándar real (p.p.)": 22.26
+    }
+  ],
+  "comp_imputacion_n_enmascarados": 259,
+  "puntaje_por_banda": {
+    "Baja (<70 %)": {
+      "n": 791,
+      "media": 217.75,
+      "mediana": 217.17
+    },
+    "Media (70–95 %)": {
+      "n": 733,
+      "media": 231.46,
+      "mediana": 231.73
+    },
+    "Alta (≥95 %)": {
+      "n": 1103,
+      "media": 233.82,
+      "mediana": 234.29
+    }
+  },
+  "diferencia_alta_baja": 16.07,
+  "diferencia_alta_baja_en_sd": 0.665,
+  "areas_por_banda": [
+    {
+      "Área": "Matemáticas",
+      "Baja (<70 %)": 44.55,
+      "Media (70–95 %)": 47.74,
+      "Alta (≥95 %)": 48.0,
+      "Diferencia Alta − Baja": 3.45
+    },
+    {
+      "Área": "Sociales y ciudadanas",
+      "Baja (<70 %)": 41.02,
+      "Media (70–95 %)": 43.69,
+      "Alta (≥95 %)": 44.36,
+      "Diferencia Alta − Baja": 3.34
+    },
+    {
+      "Área": "Inglés",
+      "Baja (<70 %)": 41.23,
+      "Media (70–95 %)": 43.44,
+      "Alta (≥95 %)": 44.4,
+      "Diferencia Alta − Baja": 3.17
+    },
+    {
+      "Área": "Lectura crítica",
+      "Baja (<70 %)": 46.15,
+      "Media (70–95 %)": 48.67,
+      "Alta (≥95 %)": 49.21,
+      "Diferencia Alta − Baja": 3.06
+    },
+    {
+      "Área": "Ciencias naturales",
+      "Baja (<70 %)": 43.26,
+      "Media (70–95 %)": 46.03,
+      "Alta (≥95 %)": 46.28,
+      "Diferencia Alta − Baja": 3.02
+    }
+  ],
+  "pearson_icee_puntaje": 0.322,
+  "spearman_icee_puntaje": 0.301,
+  "spearman_internet_icee": 0.284,
+  "spearman_madre_puntaje": 0.189,
+  "spearman_internet_puntaje": 0.418,
+  "correlaciones_objetivo": [
+    {
+      "Variable": "% computador",
+      "Pearson": 0.544,
+      "Spearman": 0.464,
+      "p (Spearman)": 1.0721980179465555e-140
+    },
+    {
+      "Variable": "% internet",
+      "Pearson": 0.494,
+      "Spearman": 0.418,
+      "p (Spearman)": 1.6184063714111256e-111
+    },
+    {
+      "Variable": "ICEE rural",
+      "Pearson": 0.322,
+      "Spearman": 0.301,
+      "p (Spearman)": 4.536723824443942e-56
+    },
+    {
+      "Variable": "% madre media+",
+      "Pearson": 0.324,
+      "Spearman": 0.189,
+      "p (Spearman)": 1.209517730184121e-22
+    },
+    {
+      "Variable": "% estrato 0–2",
+      "Pearson": -0.152,
+      "Spearman": 0.137,
+      "p (Spearman)": 1.7493474529265846e-12
+    },
+    {
+      "Variable": "% viv. rurales",
+      "Pearson": -0.104,
+      "Spearman": -0.032,
+      "p (Spearman)": 0.10418632786966234
+    },
+    {
+      "Variable": "Brecha ICEE u–r",
+      "Pearson": -0.243,
+      "Spearman": -0.249,
+      "p (Spearman)": 2.4136461996720107e-38
+    },
+    {
+      "Variable": "ln VSS rural",
+      "Pearson": -0.211,
+      "Spearman": -0.264,
+      "p (Spearman)": 4.6931728154440045e-43
+    },
+    {
+      "Variable": "% oficial",
+      "Pearson": -0.438,
+      "Spearman": -0.316,
+      "p (Spearman)": 6.342222062194994e-62
+    }
+  ],
+  "chi_cuadrado": [
+    {
+      "Cruce": "Internet en el hogar (estudiante rural) × banda de ICEE",
+      "n": 230609,
+      "Chi-cuadrado": 8821.3,
+      "gl": 2,
+      "p": "< 0,001",
+      "V de Cramér": 0.196
+    },
+    {
+      "Cruce": "Banda de ICEE × región (municipio–año)",
+      "n": 2627,
+      "Chi-cuadrado": 975.2,
+      "gl": 8,
+      "p": "< 0,001",
+      "V de Cramér": 0.431
+    }
+  ],
+  "pct_internet_por_banda": {
+    "Baja (<70 %)": 25.7,
+    "Media (70–95 %)": 34.8,
+    "Alta (≥95 %)": 47.5
+  },
+  "vif": {
+    "ICEE rural": 4.3,
+    "Brecha ICEE u–r": 3.05,
+    "% internet": 2.48,
+    "% computador": 2.44,
+    "ln VSS rural": 2.44,
+    "% madre media+": 2.17,
+    "% oficial": 1.83,
+    "% estrato 0–2": 1.81,
+    "% viv. rurales": 1.2
+  },
+  "vif_max": 4.3,
+  "vif_max_var": "ICEE rural",
+  "robustez": [
+    {
+      "Subgrupo": "Total",
+      "Tipo": "Total",
+      "n": 2627,
+      "rho": 0.301,
+      "IC95 inf": 0.265,
+      "IC95 sup": 0.338
+    },
+    {
+      "Subgrupo": "2019",
+      "Tipo": "Año",
+      "n": 870,
+      "rho": 0.325,
+      "IC95 inf": 0.259,
+      "IC95 sup": 0.387
+    },
+    {
+      "Subgrupo": "2020",
+      "Tipo": "Año",
+      "n": 865,
+      "rho": 0.283,
+      "IC95 inf": 0.217,
+      "IC95 sup": 0.349
+    },
+    {
+      "Subgrupo": "2022",
+      "Tipo": "Año",
+      "n": 892,
+      "rho": 0.281,
+      "IC95 inf": 0.218,
+      "IC95 sup": 0.344
+    },
+    {
+      "Subgrupo": "Amazonía",
+      "Tipo": "Región",
+      "n": 124,
+      "rho": 0.312,
+      "IC95 inf": 0.127,
+      "IC95 sup": 0.478
+    },
+    {
+      "Subgrupo": "Andina",
+      "Tipo": "Región",
+      "n": 1371,
+      "rho": 0.053,
+      "IC95 inf": -0.0,
+      "IC95 sup": 0.104
+    },
+    {
+      "Subgrupo": "Caribe",
+      "Tipo": "Región",
+      "n": 510,
+      "rho": 0.338,
+      "IC95 inf": 0.258,
+      "IC95 sup": 0.409
+    },
+    {
+      "Subgrupo": "Orinoquía",
+      "Tipo": "Región",
+      "n": 131,
+      "rho": 0.431,
+      "IC95 inf": 0.26,
+      "IC95 sup": 0.581
+    },
+    {
+      "Subgrupo": "Pacífica",
+      "Tipo": "Región",
+      "n": 491,
+      "rho": -0.012,
+      "IC95 inf": -0.101,
+      "IC95 sup": 0.078
+    },
+    {
+      "Subgrupo": "ICEE sin transferencias",
+      "Tipo": "Sensibilidad",
+      "n": 2627,
+      "rho": 0.318,
+      "IC95 inf": 0.282,
+      "IC95 sup": 0.356
+    },
+    {
+      "Subgrupo": "Educación baja (tercio)",
+      "Tipo": "Grupos comparables",
+      "n": 878,
+      "rho": 0.269,
+      "IC95 inf": 0.204,
+      "IC95 sup": 0.335
+    },
+    {
+      "Subgrupo": "Educación media (tercio)",
+      "Tipo": "Grupos comparables",
+      "n": 876,
+      "rho": 0.304,
+      "IC95 inf": 0.239,
+      "IC95 sup": 0.366
+    },
+    {
+      "Subgrupo": "Educación alta (tercio)",
+      "Tipo": "Grupos comparables",
+      "n": 873,
+      "rho": 0.339,
+      "IC95 inf": 0.278,
+      "IC95 sup": 0.397
+    }
+  ],
+  "varianza": [
+    {
+      "Modelo exploratorio": "Año + ICEE rural",
+      "R²": 0.1046
+    },
+    {
+      "Modelo exploratorio": "Año + controles socioeconómicos",
+      "R²": 0.2462
+    },
+    {
+      "Modelo exploratorio": "Año + controles + ICEE rural",
+      "R²": 0.3191
+    },
+    {
+      "Modelo exploratorio": "ΔR² que agrega el ICEE rural sobre los controles",
+      "R²": 0.073
+    }
+  ],
+  "hallazgos": [
+    {
+      "Hallazgo": "Los municipios con cobertura rural alta (≥95 %) superan en 16.1 puntos (0.67 desviaciones estándar) a los de cobertura baja (<70 %) en el puntaje global rural.",
+      "Decisión que sugiere": "Usar la banda de ICEE rural como criterio de focalización de programas de refuerzo académico rural."
+    },
+    {
+      "Hallazgo": "La asociación (ρ = 0.30) se repite en 2019, 2020 y 2022 y sigue siendo positiva dentro de grupos de municipios con nivel educativo parecido (ρ entre 0.27 y 0.34); el ICEE agrega 7.3 puntos porcentuales de R² sobre los controles.",
+      "Decisión que sugiere": "Tratar la electrificación rural como componente de la política educativa y someter la relación a prueba formal en el ACA 3."
+    },
+    {
+      "Hallazgo": "La relación no es homogénea: es clara en Orinoquía (ρ = 0.43), Caribe (ρ = 0.34) y Amazonía (ρ = 0.31), y prácticamente nula en Andina (ρ = 0.05) y Pacífica (ρ = -0.01).",
+      "Decisión que sugiere": "Priorizar inversiones conjuntas energía–educación en Caribe, Orinoquía y Amazonía; en el Pacífico indagar otras barreras."
+    }
+  ],
+  "fecha_ejecucion": "2026-10-16T18:34:54",
+  "semilla": 42,
+  "tiempo_ejecucion_s": 92.7,
+  "maquina": "Linux x86_64 (CPU)"
+}

@@ -1,0 +1,5 @@
+﻿Modelo exploratorio,R²
+Año + ICEE rural,0.1046
+Año + controles socioeconómicos,0.2462
+Año + controles + ICEE rural,0.3191
+ΔR² que agrega el ICEE rural sobre los controles,0.073

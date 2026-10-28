@@ -1,0 +1,2 @@
+fecha,aca,modelo,parametros,semilla,entorno,tiempo_s,metricas
+2026-10-16T18:34:54,ACA1,Sin modelo (ETL + EDA exploratorio),"{""n_min_estudiantes"": 10, ""bandas_icee"": [70, 95], ""bootstrap"": 2000, ""icee_hoja"": ""con transferencias"", ""modo_adquisicion"": ""congelado""}",42,Linux x86_64 (CPU),92.7,"{""panel_filas"": 2627, ""spearman_icee_puntaje"": 0.301, ""delta_r2_icee"": 0.073}"

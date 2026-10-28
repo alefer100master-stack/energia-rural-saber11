@@ -1,0 +1,14 @@
+﻿Subgrupo,Tipo,n,rho,IC95 inf,IC95 sup
+Total,Total,2627,0.301,0.265,0.338
+2019,Año,870,0.325,0.259,0.387
+2020,Año,865,0.283,0.217,0.349
+2022,Año,892,0.281,0.218,0.344
+Amazonía,Región,124,0.312,0.127,0.478
+Andina,Región,1371,0.053,-0.0,0.104
+Caribe,Región,510,0.338,0.258,0.409
+Orinoquía,Región,131,0.431,0.26,0.581
+Pacífica,Región,491,-0.012,-0.101,0.078
+ICEE sin transferencias,Sensibilidad,2627,0.318,0.282,0.356
+Educación baja (tercio),Grupos comparables,878,0.269,0.204,0.335
+Educación media (tercio),Grupos comparables,876,0.304,0.239,0.366
+Educación alta (tercio),Grupos comparables,873,0.339,0.278,0.397

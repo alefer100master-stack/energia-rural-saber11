@@ -1,0 +1,16 @@
+﻿Variable,Definición,% faltantes,Rango
+punt_global,Objetivo: puntaje global promedio rural (0–500),0.0,148.7 – 340.3
+icee_rural,ICEE rural del municipio (%),0.0,0.0 – 100.0
+grupo_icee,"Banda de cobertura rural: Baja <70 %, Media 70–95 %, Alta ≥95 %",0.0,categórica
+brecha_icee_urb_rur,ICEE urbano − ICEE rural (puntos porcentuales),0.0,-93.3 – 99.8
+log_vss_rural,ln(1 + viviendas rurales sin servicio),0.0,0.0 – 10.8
+pct_viviendas_rurales,Viviendas rurales / viviendas totales (%) — grado de ruralidad,0.0,0.4 – 100.0
+pct_estrato_0a2,% de estudiantes rurales en estrato 0–2,0.0,0.0 – 100.0
+pct_madre_media,% de estudiantes rurales con madre con media completa o más,0.0,0.0 – 100.0
+pct_internet,% de estudiantes rurales con internet en el hogar,0.0,0.0 – 100.0
+pct_computador,% de estudiantes rurales con computador en el hogar,0.0,0.0 – 100.0
+pct_oficial,% de estudiantes rurales en colegios oficiales,0.0,0.0 – 100.0
+n_estudiantes,Estudiantes rurales evaluados en el municipio–año,0.0,10.0 – 1151.0
+brecha_urbano_rural,Puntaje urbano − puntaje rural del municipio (KPI),4.49,-101.2 – 84.9
+pandemia / post_pandemia,Indicadores de año 2020 y 2022 (referencia: 2019),0.0,categórica
+region,Región natural (agrupación DANE de departamentos),0.0,categórica

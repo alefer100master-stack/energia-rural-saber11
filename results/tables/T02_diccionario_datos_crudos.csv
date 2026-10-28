@@ -1,0 +1,30 @@
+﻿Fuente,Variable,Tipo,Unidad,Descripción,Valores posibles o rango,% faltantes
+ICFES,periodo,Texto,—,"Periodo de aplicación (AAAA + código; 4 = segundo semestre, calendario A)",20194 – 20224,0.0
+ICFES,estu_consecutivo,Texto,—,Identificador seudonimizado del evaluado asignado por el ICFES,1.583.875 valores distintos,0.0
+ICFES,cole_area_ubicacion,Categórica,—,Zona de ubicación de la sede educativa,URBANO | RURAL,0.0
+ICFES,cole_naturaleza,Categórica,—,Naturaleza del establecimiento,OFICIAL | NO OFICIAL,0.0
+ICFES,cole_calendario,Categórica,—,Calendario académico del establecimiento,A | OTRO | B,0.0
+ICFES,cole_jornada,Categórica,—,Jornada de la sede,MAÑANA | UNICA | COMPLETA | TARDE | SABATINA | NOCHE,0.0
+ICFES,cole_cod_dane_sede,Texto,—,Código DANE de la sede,1.05001e+11 – 8.54874e+11,0.0
+ICFES,cole_cod_mcpio_ubicacion,Texto,—,Código DIVIPOLA (5 dígitos) del municipio de la sede — llave de integración,5001 – 99773,0.0
+ICFES,cole_cod_depto_ubicacion,Texto,—,Código DIVIPOLA del departamento de la sede,5 – 99,0.0
+ICFES,cole_mcpio_ubicacion,Texto,—,Nombre del municipio de la sede,1.031 valores distintos,0.0
+ICFES,cole_depto_ubicacion,Texto,—,Nombre del departamento de la sede,33 valores distintos,0.0
+ICFES,estu_genero,Categórica,—,Sexo registrado del evaluado,F | M,0.01
+ICFES,fami_estratovivienda,Ordinal,—,Estrato socioeconómico de la vivienda,Estrato 2 | Estrato 1 | Estrato 3 | Estrato 4 | Sin Estrato | Estrato 5 | Estrato 6,5.93
+ICFES,fami_educacionmadre,Ordinal,—,Máximo nivel educativo de la madre,12 valores distintos,5.12
+ICFES,fami_tieneinternet,Binaria,—,El hogar tiene servicio de internet,Si | No,5.22
+ICFES,fami_tienecomputador,Binaria,—,El hogar tiene computador,Si | No,3.8
+ICFES,estu_estadoinvestigacion,Categórica,—,Estado del resultado (PUBLICAR = válido),PUBLICAR | VALIDEZ OFICINA JURÍDICA | NO SE COMPROBO IDENTIDAD DEL EXAMINADO,0.0
+ICFES,punt_lectura_critica,Entera,puntos,Puntaje en Lectura crítica,0 – 100,0.0
+ICFES,punt_matematicas,Entera,puntos,Puntaje en Matemáticas,0 – 100,0.0
+ICFES,punt_c_naturales,Entera,puntos,Puntaje en Ciencias naturales,0 – 100,0.0
+ICFES,punt_sociales_ciudadanas,Entera,puntos,Puntaje en Sociales y ciudadanas,0 – 100,0.0
+ICFES,punt_ingles,Entera,puntos,Puntaje en Inglés,0 – 100,0.16
+ICFES,punt_global,Entera,puntos,Puntaje global = 5 × [3 × (LC + M + CN + SC) + Inglés] / 13 — VARIABLE OBJETIVO (agregada),0 – 500,0.0
+UPME,VT Rural,Entera,viviendas,Proyección DANE de viviendas totales en zona rural (centros poblados y rural disperso),49 – 63499,0.0
+UPME,VCS Rural,Entera,viviendas,Viviendas con servicio de energía en zona rural (reporte de operadores y soluciones aisladas),0 – 58347,0.0
+UPME,VSS Rural,Entera,viviendas,Viviendas sin servicio en zona rural = VT − VCS,-48869 – 49180,0.0
+UPME,ICEE Rural,Continua,% (0–100),Índice de cobertura rural = VCS / VT × 100 — VARIABLE EXPLICATIVA PRINCIPAL,ver ETL (escala heterogénea en crudo: 0–1 y 0–100),0.0
+UPME,ICEE Urbano,Continua,% (0–100),Índice de cobertura urbana,ver ETL (escala heterogénea en crudo: 0–1 y 0–100),0.0
+UPME,ICEE Total,Continua,% (0–100),Índice de cobertura total del municipio,ver ETL (escala heterogénea en crudo: 0–1 y 0–100),0.0

@@ -1,0 +1,7 @@
+﻿Variable,Faltantes (n),Faltantes (%),Tratamiento en el ETL
+mujer,136,0.01,Se conserva NaN; los % municipales se calculan sobre respuestas válidas
+estrato_0a2,67651,4.81,Se conserva NaN; los % municipales se calculan sobre respuestas válidas
+madre_media_o_mas,87092,6.19,Se conserva NaN; los % municipales se calculan sobre respuestas válidas
+internet,57484,4.08,Se conserva NaN; los % municipales se calculan sobre respuestas válidas
+computador,48253,3.43,Se conserva NaN; los % municipales se calculan sobre respuestas válidas
+punt_ingles,2138,0.15,Se conserva NaN; el puntaje global ya viene calculado por el ICFES
