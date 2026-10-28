@@ -24,8 +24,8 @@ Evaluar la relación entre la cobertura de energía eléctrica rural de los muni
 - Los datos del ICFES están anonimizados por la entidad; solo se descargaron 23 columnas (sin fecha de nacimiento ni documento). Los datos derivados se comparten bajo CC BY-SA 4.0, como exige la licencia de origen.
 
 ## Cómo reproducir
-1. Abra `notebooks/ACA1_etapas_1_y_2.ipynb` en Google Colab (Archivo › Subir cuaderno, o desde GitHub).
-2. En la primera celda de código reemplace `USUARIO` en `REPO_URL` por la cuenta de GitHub del repositorio: el cuaderno clona el repositorio para tener los datos.
+1. Abra el cuaderno en Google Colab: https://colab.research.google.com/github/alefer100master-stack/energia-rural-saber11/blob/main/notebooks/ACA1_etapas_1_y_2.ipynb
+2. La primera celda de código clona este repositorio (https://github.com/alefer100master-stack/energia-rural-saber11) para tener los datos; si trabaja con una copia (fork), cambie `REPO_URL` por la dirección de su copia.
 3. Entorno de ejecución › Ejecutar todas. Corre de principio a fin, sin errores y con semilla fija (`SEED = 42`).
    - Modo por defecto `congelado`: usa las copias de `data/raw/` y comprueba su SHA-256 contra el manifiesto.
    - `MODO_ADQUISICION=api`: vuelve a descargar de datos.gov.co (API SODA) y de la UPME.
