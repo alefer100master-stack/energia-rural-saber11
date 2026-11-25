@@ -124,6 +124,7 @@
     "2022": 892
   },
   "panel_estudiantes_rurales": 242126,
+  "icee_municipios_max_anio": 1122,
   "objetivo_media": 228.33,
   "objetivo_sd": 24.18,
   "objetivo_media_por_anio": {
@@ -514,6 +515,139 @@
       "R²": 0.073
     }
   ],
+  "moran": [
+    {
+      "Variable": "Puntaje global rural",
+      "Año": 2019,
+      "n": 869,
+      "I de Moran": 0.443,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "Puntaje global rural",
+      "Año": 2020,
+      "n": 864,
+      "I de Moran": 0.397,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "Puntaje global rural",
+      "Año": 2022,
+      "n": 891,
+      "I de Moran": 0.451,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "ICEE rural",
+      "Año": 2019,
+      "n": 869,
+      "I de Moran": 0.556,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "ICEE rural",
+      "Año": 2020,
+      "n": 864,
+      "I de Moran": 0.571,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "ICEE rural",
+      "Año": 2022,
+      "n": 891,
+      "I de Moran": 0.526,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "Residuo del modelo exploratorio",
+      "Año": 2019,
+      "n": 869,
+      "I de Moran": 0.385,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "Residuo del modelo exploratorio",
+      "Año": 2020,
+      "n": 864,
+      "I de Moran": 0.331,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    },
+    {
+      "Variable": "Residuo del modelo exploratorio",
+      "Año": 2022,
+      "n": 891,
+      "I de Moran": 0.344,
+      "I esperado sin patrón": -0.001,
+      "p (999 permutaciones)": 0.001
+    }
+  ],
+  "sensibilidad_imputacion": [
+    {
+      "Escenario": "Datos completos (referencia)",
+      "Coeficiente del ICEE (puntos por 10 p.p.)": 2.4662,
+      "R² del modelo": 0.3191,
+      "ΔR² del ICEE": 0.073
+    },
+    {
+      "Escenario": "Relleno con la mediana",
+      "Coeficiente del ICEE (puntos por 10 p.p.)": 2.5488,
+      "R² del modelo": 0.2779,
+      "ΔR² del ICEE": 0.0783
+    },
+    {
+      "Escenario": "Relleno con KNN (5 vecinos)",
+      "Coeficiente del ICEE (puntos por 10 p.p.)": 2.4647,
+      "R² del modelo": 0.3136,
+      "ΔR² del ICEE": 0.0728
+    }
+  ],
+  "sensibilidad_valores_ocultos": 1104,
+  "sensibilidad_pct_filas_con_hueco": 36.0,
+  "interaccion_region": [
+    {
+      "Región": "Amazonía",
+      "n": 124,
+      "Pendiente del ICEE (puntos por 10 p.p.)": 1.457,
+      "ρ de Spearman (sección 6.11)": 0.312
+    },
+    {
+      "Región": "Andina",
+      "n": 1371,
+      "Pendiente del ICEE (puntos por 10 p.p.)": -0.07,
+      "ρ de Spearman (sección 6.11)": 0.053
+    },
+    {
+      "Región": "Caribe",
+      "n": 510,
+      "Pendiente del ICEE (puntos por 10 p.p.)": 1.483,
+      "ρ de Spearman (sección 6.11)": 0.338
+    },
+    {
+      "Región": "Orinoquía",
+      "n": 131,
+      "Pendiente del ICEE (puntos por 10 p.p.)": 2.365,
+      "ρ de Spearman (sección 6.11)": 0.431
+    },
+    {
+      "Región": "Pacífica",
+      "n": 491,
+      "Pendiente del ICEE (puntos por 10 p.p.)": -0.338,
+      "ρ de Spearman (sección 6.11)": -0.012
+    }
+  ],
+  "interaccion_r2": {
+    "sin_interaccion": 0.4037,
+    "con_interaccion": 0.4101,
+    "delta": 0.0064
+  },
   "hallazgos": [
     {
       "Hallazgo": "Los municipios con cobertura rural alta (≥95 %) superan en 16.1 puntos (0.67 desviaciones estándar) a los de cobertura baja (<70 %) en el puntaje global rural.",
@@ -528,8 +662,10 @@
       "Decisión que sugiere": "Priorizar inversiones conjuntas energía–educación en Caribe, Orinoquía y Amazonía; en el Pacífico indagar otras barreras."
     }
   ],
-  "fecha_ejecucion": "2026-10-16T18:34:54",
+  "pct_oficial_mediana": 100.0,
+  "rho_icee_logvss": -0.93,
+  "fecha_ejecucion": "2026-11-14T18:32:21",
   "semilla": 42,
-  "tiempo_ejecucion_s": 92.7,
+  "tiempo_ejecucion_s": 96.5,
   "maquina": "Linux x86_64 (CPU)"
 }

@@ -1,0 +1,4 @@
+﻿Hipótesis,Pregunta,Modelo,Estadístico,gl,p,p ajustado (Holm),Decisión
+H4,¿El ICEE rural se asocia al puntaje dentro del mismo municipio? (coeficiente ≠ 0),B · efectos fijos,"t = 1,21",880,0.2274,0.4548,No se rechaza H0
+H5,"¿La asociación cambia entre 2019, 2020 y 2022? (ICEE × año)",B · efectos fijos,"F = 0,79",2 y 880,0.4541,0.4548,No se rechaza H0
+H6,¿La asociación cambia entre regiones? (ICEE × región),A · agrupado,"F = 4,06",4 y 925,0.0029,0.0086,Se rechaza H0

@@ -1,0 +1,9 @@
+﻿Hipótesis,Grupo,n Alta,n Baja,Diferencia de medianas,Delta de Cliff,p,p ajustado (Holm),Decisión,"Magnitud (Romano et al., 2006)"
+H3,Año: 2019,334,266,18.6496,0.4218,0.0,0.0,Se rechaza H0,Mediana
+H3,Año: 2020,345,277,14.7188,0.355,0.0,0.0,Se rechaza H0,Mediana
+H3,Año: 2022,424,248,19.6405,0.4133,0.0,0.0,Se rechaza H0,Mediana
+H3,Región: Amazonía,12,85,6.2003,0.2922,0.0519,0.1037,No se rechaza H0,Pequeña
+H3,Región: Andina,782,131,5.2875,0.1269,0.01,0.03,Se rechaza H0,Despreciable
+H3,Región: Caribe,46,394,6.1631,0.3301,0.0001,0.0006,Se rechaza H0,Mediana
+H3,Región: Orinoquía,26,71,9.578,0.4399,0.0005,0.0019,Se rechaza H0,Mediana
+H3,Región: Pacífica,237,110,2.9072,0.0119,0.4293,0.4293,No se rechaza H0,Despreciable

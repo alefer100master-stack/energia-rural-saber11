@@ -1,0 +1,4 @@
+﻿id_banda;banda;limite_inferior;limite_superior
+1;Baja (<70 %);0,0;70,0
+2;Media (70–95 %);70,0;95,0
+3;Alta (≥95 %);95,0;100,01

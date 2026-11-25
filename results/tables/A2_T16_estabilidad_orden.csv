@@ -1,0 +1,11 @@
+﻿Modelo,RMSE semillas 42–44,Puesto 42–44,RMSE semillas 52–54,Puesto 52–54,RMSE temporal (2022),Puesto temporal
+Red neuronal (MLP),15.7081,1,15.7353,1,19.2721,8
+SVR,15.777,2,15.7663,2,17.4545,5
+HistGradientBoosting,15.7905,3,15.7863,3,17.0737,2
+Random Forest,16.1551,4,16.1743,4,17.1607,3
+KNN,16.6026,5,16.6591,5,16.7339,1
+Ridge,17.5225,6,17.5837,6,17.4147,4
+Lasso,17.5361,7,17.5972,7,17.4769,6
+Regresión lineal,17.5365,8,17.5974,8,17.4852,7
+Árbol de decisión,17.9241,9,18.3987,9,20.5367,9
+Línea base (promedio),24.7185,10,24.6626,10,22.6605,10

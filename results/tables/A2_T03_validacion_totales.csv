@@ -1,0 +1,26 @@
+﻿Objeto,Control,Fuente original,Modelo o tablero,Diferencia,Explicación
+hechos_saber11 2019,Registros (crudos frente al modelo),1096524.0,470508.0,-626016.0,Diferencia esperada: duplicados exactos y filtros del ETL (Tabla 7)
+hechos_saber11 2019,Registros (fuente con las reglas documentadas),470508.0,470508.0,0.0,Coinciden
+hechos_saber11 2019,Suma de punt_global,118862019.0,118862019.0,0.0,Coinciden
+hechos_saber11 2020,Registros (crudos frente al modelo),504872.0,457700.0,-47172.0,Diferencia esperada: duplicados exactos y filtros del ETL (Tabla 7)
+hechos_saber11 2020,Registros (fuente con las reglas documentadas),457700.0,457700.0,0.0,Coinciden
+hechos_saber11 2020,Suma de punt_global,115352330.0,115352330.0,0.0,Coinciden
+hechos_saber11 2022,Registros (crudos frente al modelo),1065888.0,479568.0,-586320.0,Diferencia esperada: duplicados exactos y filtros del ETL (Tabla 7)
+hechos_saber11 2022,Registros (fuente con las reglas documentadas),479568.0,479568.0,0.0,Coinciden
+hechos_saber11 2022,Suma de punt_global,121936480.0,121936480.0,0.0,Coinciden
+hechos_cobertura,Filas (municipio–año),6732.0,6732.0,0.0,Coinciden
+hechos_cobertura,Suma de viviendas rurales (VT),27186576.0,27186576.0,0.0,Coinciden
+vista_panel_rural,Filas municipio–año,2627.0,2627.0,0.0,Coinciden
+vista_panel_rural,Estudiantes rurales,242126.0,242126.0,0.0,Coinciden
+vista_panel_rural,Suma de puntajes municipales,599811.834468344,599811.834468344,0.0,Coinciden
+KPI 1 2019,Puntaje rural (ACA 1 frente a SQL),228.52,228.52,0.0,Coinciden
+KPI 2 2019,Brecha urbano–rural (ACA 1 frente a SQL),28.98,28.98,0.0,Coinciden
+KPI 3 2019,ICEE rural nacional (ACA 1 frente a SQL),76.13,76.13,0.0,Coinciden
+KPI 1 2020,Puntaje rural (ACA 1 frente a SQL),228.45,228.45,0.0,Coinciden
+KPI 2 2020,Brecha urbano–rural (ACA 1 frente a SQL),28.44,28.44,0.0,Coinciden
+KPI 3 2020,ICEE rural nacional (ACA 1 frente a SQL),75.09,75.09,0.0,Coinciden
+KPI 1 2022,Puntaje rural (ACA 1 frente a SQL),229.79,229.79,0.0,Coinciden
+KPI 2 2022,Brecha urbano–rural (ACA 1 frente a SQL),29.84,29.84,0.0,Coinciden
+KPI 3 2022,ICEE rural nacional (ACA 1 frente a SQL),80.56,80.56,0.0,Coinciden
+KPI 4,Diferencia Alta − Baja (ACA 1 frente a SQL),16.07,16.07,0.0,Coinciden
+KPI 5,ρ de Spearman (ACA 1 frente a SQL),0.301,0.301,0.0,Coinciden

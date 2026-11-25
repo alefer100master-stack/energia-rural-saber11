@@ -1,0 +1,7 @@
+﻿KPI,Fórmula,Tablas del modelo,2019,2020,2022,2019–2022,Referencia
+KPI 1. Puntaje global rural,Promedio de punt_global de los estudiantes con id_zona = 1,hechos_saber11,228.5177,228.4478,229.7855,,Línea base: 2019
+KPI 2. Brecha urbano–rural,Promedio urbano − promedio rural de punt_global,hechos_saber11 + dim_zona,28.9791,28.4358,29.8402,,Línea base: 2019
+KPI 3. ICEE rural nacional,100 × Σ viviendas rurales con servicio / Σ viviendas rurales,hechos_cobertura,76.134,75.0935,80.5617,,Línea base: 2019
+KPI 4. Diferencia por cobertura,Puntaje medio municipal banda Alta − banda Baja,vista_panel_rural + dim_banda_icee,17.4687,13.7236,16.4249,16.0686,Línea base: 0 puntos
+KPI 5. Asociación,ρ de Spearman entre icee_rural y punt_global municipal,vista_panel_rural,0.3252,0.2833,0.2813,0.3008,Línea base: ρ = 0
+KPI 6. Varianza asociada,R²(controles + ICEE + año) − R²(controles + año),vista_panel_rural + panel ACA 1,0.0735,0.0685,0.0743,0.073,Línea base: ΔR² = 0

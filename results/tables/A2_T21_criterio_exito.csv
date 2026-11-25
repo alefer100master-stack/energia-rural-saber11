@@ -1,0 +1,4 @@
+﻿Parte del criterio,Resultado,¿Se cumple?
+"|ρ| ≥ 0,10 con IC 95 % que excluye el cero en al menos 2 de 3 años (H1)",3 de 3 años,Sí
+"ΔR² del ICEE ≥ 0,02 sobre los controles (KPI 6)","ΔR² = 0,0730",Sí
+"… con p < 0,05 tras la corrección de Holm (errores agrupados por municipio)","p ajustado < 0,001",Sí

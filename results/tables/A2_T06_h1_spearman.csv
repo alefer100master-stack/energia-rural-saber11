@@ -1,0 +1,9 @@
+﻿Hipótesis,Grupo,n,ρ de Spearman,IC 95 % inf.,IC 95 % sup.,p,p ajustado (Holm),Decisión,"Relevante (|ρ| ≥ 0,10 e IC sin 0)"
+H1,Año: 2019,870,0.3252,0.2647,0.3887,0.0,0.0,Se rechaza H0,Sí
+H1,Año: 2020,865,0.2833,0.2178,0.3492,0.0,0.0,Se rechaza H0,Sí
+H1,Año: 2022,892,0.2813,0.2185,0.3393,0.0,0.0,Se rechaza H0,Sí
+H1,Región: Amazonía,124,0.3124,0.1323,0.464,0.0004,0.0012,Se rechaza H0,Sí
+H1,Región: Andina,1371,0.0534,-0.0019,0.1061,0.0482,0.0965,No se rechaza H0,No
+H1,Región: Caribe,510,0.3385,0.2622,0.4161,0.0,0.0,Se rechaza H0,Sí
+H1,Región: Orinoquía,131,0.4315,0.2604,0.5767,0.0,0.0,Se rechaza H0,Sí
+H1,Región: Pacífica,491,-0.0125,-0.1039,0.0808,0.7827,0.7827,No se rechaza H0,No

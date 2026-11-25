@@ -1,0 +1,1508 @@
+{
+ "xgboost_disponible": false,
+ "lightgbm_disponible": false,
+ "versiones": {
+  "python": "3.13.18",
+  "pandas": "3.0.5",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "scikit-learn": "1.9.1",
+  "matplotlib": "3.11.2",
+  "seaborn": "0.13.2",
+  "sqlite": "3.53.1"
+ },
+ "panel_filas": 2627,
+ "panel_municipios": 926,
+ "modelo_dimensional": [
+  {
+   "Tabla": "dim_municipio",
+   "Tipo": "Dimensión",
+   "Grano": "Un municipio",
+   "Llaves": "id_municipio (PK)",
+   "Filas": 1123
+  },
+  {
+   "Tabla": "dim_tiempo",
+   "Tipo": "Dimensión",
+   "Grano": "Un año (2019–2024)",
+   "Llaves": "anio (PK)",
+   "Filas": 6
+  },
+  {
+   "Tabla": "dim_zona",
+   "Tipo": "Dimensión",
+   "Grano": "Una zona (rural o urbana)",
+   "Llaves": "id_zona (PK)",
+   "Filas": 2
+  },
+  {
+   "Tabla": "dim_banda_icee",
+   "Tipo": "Dimensión",
+   "Grano": "Una banda de cobertura",
+   "Llaves": "id_banda (PK)",
+   "Filas": 3
+  },
+  {
+   "Tabla": "hechos_saber11",
+   "Tipo": "Hechos",
+   "Grano": "Un estudiante evaluado",
+   "Llaves": "id_evaluado (PK); id_municipio, anio, id_zona (FK)",
+   "Filas": 1407776
+  },
+  {
+   "Tabla": "hechos_cobertura",
+   "Tipo": "Hechos",
+   "Grano": "Un municipio en un año",
+   "Llaves": "id_municipio + anio (PK); id_banda (FK)",
+   "Filas": 6732
+  },
+  {
+   "Tabla": "vista_panel_rural",
+   "Tipo": "Vista",
+   "Grano": "Un municipio en un año, zona rural (≥10 estudiantes)",
+   "Llaves": "Une los dos hechos por id_municipio + anio",
+   "Filas": 2627
+  }
+ ],
+ "kpis": [
+  {
+   "KPI": "KPI 1. Puntaje global rural",
+   "Fórmula": "Promedio de punt_global de los estudiantes con id_zona = 1",
+   "Tablas del modelo": "hechos_saber11",
+   "2019": 228.5177,
+   "2020": 228.4478,
+   "2022": 229.7855,
+   "2019–2022": NaN,
+   "Referencia": "Línea base: 2019"
+  },
+  {
+   "KPI": "KPI 2. Brecha urbano–rural",
+   "Fórmula": "Promedio urbano − promedio rural de punt_global",
+   "Tablas del modelo": "hechos_saber11 + dim_zona",
+   "2019": 28.9791,
+   "2020": 28.4358,
+   "2022": 29.8402,
+   "2019–2022": NaN,
+   "Referencia": "Línea base: 2019"
+  },
+  {
+   "KPI": "KPI 3. ICEE rural nacional",
+   "Fórmula": "100 × Σ viviendas rurales con servicio / Σ viviendas rurales",
+   "Tablas del modelo": "hechos_cobertura",
+   "2019": 76.134,
+   "2020": 75.0935,
+   "2022": 80.5617,
+   "2019–2022": NaN,
+   "Referencia": "Línea base: 2019"
+  },
+  {
+   "KPI": "KPI 4. Diferencia por cobertura",
+   "Fórmula": "Puntaje medio municipal banda Alta − banda Baja",
+   "Tablas del modelo": "vista_panel_rural + dim_banda_icee",
+   "2019": 17.4687,
+   "2020": 13.7236,
+   "2022": 16.4249,
+   "2019–2022": 16.0686,
+   "Referencia": "Línea base: 0 puntos"
+  },
+  {
+   "KPI": "KPI 5. Asociación",
+   "Fórmula": "ρ de Spearman entre icee_rural y punt_global municipal",
+   "Tablas del modelo": "vista_panel_rural",
+   "2019": 0.3252,
+   "2020": 0.2833,
+   "2022": 0.2813,
+   "2019–2022": 0.3008,
+   "Referencia": "Línea base: ρ = 0"
+  },
+  {
+   "KPI": "KPI 6. Varianza asociada",
+   "Fórmula": "R²(controles + ICEE + año) − R²(controles + año)",
+   "Tablas del modelo": "vista_panel_rural + panel ACA 1",
+   "2019": 0.0735,
+   "2020": 0.0685,
+   "2022": 0.0743,
+   "2019–2022": 0.073,
+   "Referencia": "Línea base: ΔR² = 0"
+  }
+ ],
+ "validacion_controles": 25,
+ "validacion_diferencias_cero": 22,
+ "validacion_diferencias_explicadas": 3,
+ "particion": [
+  {
+   "Conjunto": "Entrenamiento",
+   "Filas municipio–año": 2101,
+   "Municipios": 740,
+   "% banda Baja": 30.1,
+   "% banda Media": 27.9,
+   "% banda Alta": 42.0,
+   "Puntaje medio": 228.44
+  },
+  {
+   "Conjunto": "Prueba",
+   "Filas municipio–año": 526,
+   "Municipios": 186,
+   "% banda Baja": 30.0,
+   "% banda Media": 27.9,
+   "% banda Alta": 42.0,
+   "Puntaje medio": 227.87
+  }
+ ],
+ "cv_particiones": 15,
+ "variables_candidatas": 26,
+ "variables_creadas": 15,
+ "variables_seleccionadas": [
+  "icee_rural",
+  "icee_urbano",
+  "pct_estrato_0a2",
+  "pct_internet",
+  "pct_computador",
+  "pct_oficial",
+  "pct_mujer",
+  "n_sedes",
+  "log_vss_rural",
+  "pct_viviendas_rurales",
+  "icee_prom_movil_2a",
+  "conectividad_efectiva",
+  "region_Amazonía",
+  "region_Caribe",
+  "region_Pacífica",
+  "pandemia"
+ ],
+ "variables_descartadas": [
+  "vt_rural",
+  "pct_madre_media",
+  "n_estudiantes",
+  "brecha_icee_urb_rur",
+  "grupo_icee_ord",
+  "variacion_icee_desde_2019",
+  "log_n_estudiantes",
+  "estudiantes_por_sede",
+  "region_Orinoquía",
+  "post_pandemia"
+ ],
+ "h1": [
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Año: 2019",
+   "n": 870,
+   "ρ de Spearman": 0.3252,
+   "IC 95 % inf.": 0.2647,
+   "IC 95 % sup.": 0.3887,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "Sí"
+  },
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Año: 2020",
+   "n": 865,
+   "ρ de Spearman": 0.2833,
+   "IC 95 % inf.": 0.2178,
+   "IC 95 % sup.": 0.3492,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "Sí"
+  },
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Año: 2022",
+   "n": 892,
+   "ρ de Spearman": 0.2813,
+   "IC 95 % inf.": 0.2185,
+   "IC 95 % sup.": 0.3393,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "Sí"
+  },
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Región: Amazonía",
+   "n": 124,
+   "ρ de Spearman": 0.3124,
+   "IC 95 % inf.": 0.1323,
+   "IC 95 % sup.": 0.464,
+   "p": 0.0004,
+   "p ajustado (Holm)": 0.0012,
+   "Decisión": "Se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "Sí"
+  },
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Región: Andina",
+   "n": 1371,
+   "ρ de Spearman": 0.0534,
+   "IC 95 % inf.": -0.0019,
+   "IC 95 % sup.": 0.1061,
+   "p": 0.0482,
+   "p ajustado (Holm)": 0.0965,
+   "Decisión": "No se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "No"
+  },
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Región: Caribe",
+   "n": 510,
+   "ρ de Spearman": 0.3385,
+   "IC 95 % inf.": 0.2622,
+   "IC 95 % sup.": 0.4161,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "Sí"
+  },
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Región: Orinoquía",
+   "n": 131,
+   "ρ de Spearman": 0.4315,
+   "IC 95 % inf.": 0.2604,
+   "IC 95 % sup.": 0.5767,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "Sí"
+  },
+  {
+   "Hipótesis": "H1",
+   "Grupo": "Región: Pacífica",
+   "n": 491,
+   "ρ de Spearman": -0.0125,
+   "IC 95 % inf.": -0.1039,
+   "IC 95 % sup.": 0.0808,
+   "p": 0.7827,
+   "p ajustado (Holm)": 0.7827,
+   "Decisión": "No se rechaza H0",
+   "Relevante (|ρ| ≥ 0,10 e IC sin 0)": "No"
+  }
+ ],
+ "h2": [
+  {
+   "Hipótesis": "H2",
+   "Grupo": "Año: 2019",
+   "n": 870,
+   "H de Kruskal–Wallis": 101.9944,
+   "épsilon²": 0.1153,
+   "p": 0.0,
+   "Mediana Baja": 215.4424,
+   "Mediana Media": 232.0278,
+   "Mediana Alta": 234.0919,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0"
+  },
+  {
+   "Hipótesis": "H2",
+   "Grupo": "Año: 2020",
+   "n": 865,
+   "H de Kruskal–Wallis": 82.9688,
+   "épsilon²": 0.0939,
+   "p": 0.0,
+   "Mediana Baja": 217.561,
+   "Mediana Media": 231.1034,
+   "Mediana Alta": 232.2798,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0"
+  },
+  {
+   "Hipótesis": "H2",
+   "Grupo": "Año: 2022",
+   "n": 892,
+   "H de Kruskal–Wallis": 84.9422,
+   "épsilon²": 0.0933,
+   "p": 0.0,
+   "Mediana Baja": 217.5658,
+   "Mediana Media": 232.9444,
+   "Mediana Alta": 237.2063,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0"
+  }
+ ],
+ "h2_dunn": [
+  {
+   "Año": 2019,
+   "Comparación": "Media frente a Baja",
+   "z": -8.2317,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Difieren"
+  },
+  {
+   "Año": 2019,
+   "Comparación": "Alta frente a Baja",
+   "z": -9.3223,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Difieren"
+  },
+  {
+   "Año": 2019,
+   "Comparación": "Alta frente a Media",
+   "z": -0.6716,
+   "p": 0.5018,
+   "p ajustado (Holm)": 1.0,
+   "Decisión": "No difieren"
+  },
+  {
+   "Año": 2020,
+   "Comparación": "Media frente a Baja",
+   "z": -7.7824,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Difieren"
+  },
+  {
+   "Año": 2020,
+   "Comparación": "Alta frente a Baja",
+   "z": -8.036,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Difieren"
+  },
+  {
+   "Año": 2020,
+   "Comparación": "Alta frente a Media",
+   "z": 0.4263,
+   "p": 0.6699,
+   "p ajustado (Holm)": 1.0,
+   "Decisión": "No difieren"
+  },
+  {
+   "Año": 2022,
+   "Comparación": "Media frente a Baja",
+   "z": -6.2237,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Difieren"
+  },
+  {
+   "Año": 2022,
+   "Comparación": "Alta frente a Baja",
+   "z": -9.0906,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Difieren"
+  },
+  {
+   "Año": 2022,
+   "Comparación": "Alta frente a Media",
+   "z": -1.809,
+   "p": 0.0705,
+   "p ajustado (Holm)": 0.2114,
+   "Decisión": "No difieren"
+  }
+ ],
+ "h3": [
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Año: 2019",
+   "n Alta": 334,
+   "n Baja": 266,
+   "Diferencia de medianas": 18.6496,
+   "Delta de Cliff": 0.4218,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Mediana"
+  },
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Año: 2020",
+   "n Alta": 345,
+   "n Baja": 277,
+   "Diferencia de medianas": 14.7188,
+   "Delta de Cliff": 0.355,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Mediana"
+  },
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Año: 2022",
+   "n Alta": 424,
+   "n Baja": 248,
+   "Diferencia de medianas": 19.6405,
+   "Delta de Cliff": 0.4133,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0,
+   "Decisión": "Se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Mediana"
+  },
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Región: Amazonía",
+   "n Alta": 12,
+   "n Baja": 85,
+   "Diferencia de medianas": 6.2003,
+   "Delta de Cliff": 0.2922,
+   "p": 0.0519,
+   "p ajustado (Holm)": 0.1037,
+   "Decisión": "No se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Pequeña"
+  },
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Región: Andina",
+   "n Alta": 782,
+   "n Baja": 131,
+   "Diferencia de medianas": 5.2875,
+   "Delta de Cliff": 0.1269,
+   "p": 0.01,
+   "p ajustado (Holm)": 0.03,
+   "Decisión": "Se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Despreciable"
+  },
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Región: Caribe",
+   "n Alta": 46,
+   "n Baja": 394,
+   "Diferencia de medianas": 6.1631,
+   "Delta de Cliff": 0.3301,
+   "p": 0.0001,
+   "p ajustado (Holm)": 0.0006,
+   "Decisión": "Se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Mediana"
+  },
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Región: Orinoquía",
+   "n Alta": 26,
+   "n Baja": 71,
+   "Diferencia de medianas": 9.578,
+   "Delta de Cliff": 0.4399,
+   "p": 0.0005,
+   "p ajustado (Holm)": 0.0019,
+   "Decisión": "Se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Mediana"
+  },
+  {
+   "Hipótesis": "H3",
+   "Grupo": "Región: Pacífica",
+   "n Alta": 237,
+   "n Baja": 110,
+   "Diferencia de medianas": 2.9072,
+   "Delta de Cliff": 0.0119,
+   "p": 0.4293,
+   "p ajustado (Holm)": 0.4293,
+   "Decisión": "No se rechaza H0",
+   "Magnitud (Romano et al., 2006)": "Despreciable"
+  }
+ ],
+ "criterio_exito_anios_relevantes": 3,
+ "n_pruebas_busqueda": 20,
+ "hiperparametros": [
+  {
+   "Modelo": "Línea base (promedio)",
+   "Nivel": "a",
+   "Espacio de búsqueda": "Sin hiperparámetros",
+   "Combinaciones probadas": 1,
+   "Mejores valores": "—",
+   "RMSE de búsqueda": 24.684,
+   "Tiempo de búsqueda (s)": 0.014
+  },
+  {
+   "Modelo": "Regresión lineal",
+   "Nivel": "a",
+   "Espacio de búsqueda": "Sin hiperparámetros",
+   "Combinaciones probadas": 1,
+   "Mejores valores": "—",
+   "RMSE de búsqueda": 17.442,
+   "Tiempo de búsqueda (s)": 0.016
+  },
+  {
+   "Modelo": "Ridge",
+   "Nivel": "b",
+   "Espacio de búsqueda": "alpha: loguniform(0.001, 1000.0)",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "alpha = 24.6583",
+   "RMSE de búsqueda": 17.432,
+   "Tiempo de búsqueda (s)": 0.408
+  },
+  {
+   "Modelo": "Lasso",
+   "Nivel": "b",
+   "Espacio de búsqueda": "alpha: loguniform(0.0001, 10)",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "alpha = 0.0033",
+   "RMSE de búsqueda": 17.442,
+   "Tiempo de búsqueda (s)": 0.403
+  },
+  {
+   "Modelo": "KNN",
+   "Nivel": "b",
+   "Espacio de búsqueda": "n_neighbors: randint(3, 60); weights: ['uniform', 'distance']; p: [1, 2]",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "n_neighbors = 17; p = 1; weights = distance",
+   "RMSE de búsqueda": 16.659,
+   "Tiempo de búsqueda (s)": 0.823
+  },
+  {
+   "Modelo": "SVR",
+   "Nivel": "b",
+   "Espacio de búsqueda": "C: loguniform(0.05, 50); epsilon: uniform(0.01, 0.5); gamma: loguniform(0.001, 1)",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "C = 1.0457; epsilon = 0.071; gamma = 0.0306",
+   "RMSE de búsqueda": 15.886,
+   "Tiempo de búsqueda (s)": 5.74
+  },
+  {
+   "Modelo": "Árbol de decisión",
+   "Nivel": "b",
+   "Espacio de búsqueda": "max_depth: randint(2, 13); min_samples_leaf: randint(5, 61)",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "max_depth = 8; min_samples_leaf = 15",
+   "RMSE de búsqueda": 18.185,
+   "Tiempo de búsqueda (s)": 0.602
+  },
+  {
+   "Modelo": "Random Forest",
+   "Nivel": "c",
+   "Espacio de búsqueda": "n_estimators: randint(150, 501); max_depth: [None, 6, 8, 10, 14, 18]; min_samples_leaf: randint(1, 21); max_features: [0.3, 0.5, 0.7, 1.0, 'sqrt']",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "max_depth = 10; max_features = 0.5; min_samples_leaf = 1; n_estimators = 463",
+   "RMSE de búsqueda": 16.222,
+   "Tiempo de búsqueda (s)": 45.943
+  },
+  {
+   "Modelo": "HistGradientBoosting",
+   "Nivel": "c",
+   "Espacio de búsqueda": "learning_rate: loguniform(0.01, 0.2); max_iter: randint(100, 601); max_leaf_nodes: randint(8, 65); min_samples_leaf: randint(10, 61); l2_regularization: uniform(0, 5)",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "l2_regularization = 0.7801; learning_rate = 0.016; max_iter = 430; max_leaf_nodes = 18; min_samples_leaf = 33",
+   "RMSE de búsqueda": 15.876,
+   "Tiempo de búsqueda (s)": 29.931
+  },
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "Nivel": "d",
+   "Espacio de búsqueda": "hidden_layer_sizes: [(32,), (64,), (64, 32), (128, 64)]; alpha: loguniform(0.0, 0.1); learning_rate_init: loguniform(0.0001, 0.01)",
+   "Combinaciones probadas": 20,
+   "Mejores valores": "alpha = 0.0785; hidden_layer_sizes = (64, 32); learning_rate_init = 0.0008",
+   "RMSE de búsqueda": 15.823,
+   "Tiempo de búsqueda (s)": 21.867
+  }
+ ],
+ "mejor_modelo": "Red neuronal (MLP)",
+ "comparacion_modelos": [
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "Nivel": "d",
+   "RMSE media": 15.7081,
+   "RMSE d.e.": 0.6435,
+   "MAE media": 12.0692,
+   "MAE d.e.": 0.5731,
+   "MAPE % media": 5.3992,
+   "MAPE % d.e.": 0.2844,
+   "R² media": 0.592,
+   "R² d.e.": 0.0416,
+   "Tiempo medio de entrenamiento (s)": 0.1935,
+   "tiempo_total_s": 0.1748,
+   "prueba_rmse": 15.5737,
+   "prueba_mae": 12.0034,
+   "prueba_mape": 5.3188,
+   "prueba_r2": 0.4922
+  },
+  {
+   "Modelo": "SVR",
+   "Nivel": "b",
+   "RMSE media": 15.777,
+   "RMSE d.e.": 0.6503,
+   "MAE media": 12.0769,
+   "MAE d.e.": 0.5197,
+   "MAPE % media": 5.4166,
+   "MAPE % d.e.": 0.2694,
+   "R² media": 0.5889,
+   "R² d.e.": 0.0354,
+   "Tiempo medio de entrenamiento (s)": 0.0884,
+   "tiempo_total_s": 0.1192,
+   "prueba_rmse": 15.2331,
+   "prueba_mae": 11.7788,
+   "prueba_mape": 5.2361,
+   "prueba_r2": 0.5142
+  },
+  {
+   "Modelo": "HistGradientBoosting",
+   "Nivel": "c",
+   "RMSE media": 15.7905,
+   "RMSE d.e.": 1.0336,
+   "MAE media": 12.1273,
+   "MAE d.e.": 0.7835,
+   "MAPE % media": 5.421,
+   "MAPE % d.e.": 0.3964,
+   "R² media": 0.5877,
+   "R² d.e.": 0.0505,
+   "Tiempo medio de entrenamiento (s)": 0.5007,
+   "tiempo_total_s": 0.4507,
+   "prueba_rmse": 15.9,
+   "prueba_mae": 11.9057,
+   "prueba_mape": 5.2693,
+   "prueba_r2": 0.4707
+  },
+  {
+   "Modelo": "Random Forest",
+   "Nivel": "c",
+   "RMSE media": 16.1551,
+   "RMSE d.e.": 1.1435,
+   "MAE media": 12.3981,
+   "MAE d.e.": 0.7787,
+   "MAPE % media": 5.5501,
+   "MAPE % d.e.": 0.4032,
+   "R² media": 0.5677,
+   "R² d.e.": 0.0624,
+   "Tiempo medio de entrenamiento (s)": 1.13,
+   "tiempo_total_s": 1.3127,
+   "prueba_rmse": 16.1406,
+   "prueba_mae": 12.0426,
+   "prueba_mape": 5.3744,
+   "prueba_r2": 0.4546
+  },
+  {
+   "Modelo": "KNN",
+   "Nivel": "b",
+   "RMSE media": 16.6026,
+   "RMSE d.e.": 1.0703,
+   "MAE media": 12.7722,
+   "MAE d.e.": 0.7197,
+   "MAPE % media": 5.7393,
+   "MAPE % d.e.": 0.3485,
+   "R² media": 0.5459,
+   "R² d.e.": 0.0385,
+   "Tiempo medio de entrenamiento (s)": 0.0042,
+   "tiempo_total_s": 0.0035,
+   "prueba_rmse": 16.2299,
+   "prueba_mae": 12.3195,
+   "prueba_mape": 5.5098,
+   "prueba_r2": 0.4485
+  },
+  {
+   "Modelo": "Ridge",
+   "Nivel": "b",
+   "RMSE media": 17.5225,
+   "RMSE d.e.": 0.7188,
+   "MAE media": 13.3893,
+   "MAE d.e.": 0.4601,
+   "MAPE % media": 5.9957,
+   "MAPE % d.e.": 0.2462,
+   "R² media": 0.492,
+   "R² d.e.": 0.0552,
+   "Tiempo medio de entrenamiento (s)": 0.0068,
+   "tiempo_total_s": 0.0041,
+   "prueba_rmse": 16.7715,
+   "prueba_mae": 12.8892,
+   "prueba_mape": 5.8027,
+   "prueba_r2": 0.4111
+  },
+  {
+   "Modelo": "Lasso",
+   "Nivel": "b",
+   "RMSE media": 17.5361,
+   "RMSE d.e.": 0.7157,
+   "MAE media": 13.3927,
+   "MAE d.e.": 0.4569,
+   "MAPE % media": 5.995,
+   "MAPE % d.e.": 0.2437,
+   "R² media": 0.4912,
+   "R² d.e.": 0.0556,
+   "Tiempo medio de entrenamiento (s)": 0.0063,
+   "tiempo_total_s": 0.0057,
+   "prueba_rmse": 16.7547,
+   "prueba_mae": 12.882,
+   "prueba_mape": 5.7972,
+   "prueba_r2": 0.4123
+  },
+  {
+   "Modelo": "Regresión lineal",
+   "Nivel": "a",
+   "RMSE media": 17.5365,
+   "RMSE d.e.": 0.7151,
+   "MAE media": 13.3929,
+   "MAE d.e.": 0.4565,
+   "MAPE % media": 5.9949,
+   "MAPE % d.e.": 0.2433,
+   "R² media": 0.4912,
+   "R² d.e.": 0.0556,
+   "Tiempo medio de entrenamiento (s)": 0.0048,
+   "tiempo_total_s": 0.0042,
+   "prueba_rmse": 16.7538,
+   "prueba_mae": 12.882,
+   "prueba_mape": 5.797,
+   "prueba_r2": 0.4123
+  },
+  {
+   "Modelo": "Árbol de decisión",
+   "Nivel": "b",
+   "RMSE media": 17.9241,
+   "RMSE d.e.": 1.0422,
+   "MAE media": 13.8789,
+   "MAE d.e.": 0.6679,
+   "MAPE % media": 6.1872,
+   "MAPE % d.e.": 0.3511,
+   "R² media": 0.468,
+   "R² d.e.": 0.0681,
+   "Tiempo medio de entrenamiento (s)": 0.0119,
+   "tiempo_total_s": 0.0133,
+   "prueba_rmse": 18.7058,
+   "prueba_mae": 14.0565,
+   "prueba_mape": 6.2733,
+   "prueba_r2": 0.2674
+  },
+  {
+   "Modelo": "Línea base (promedio)",
+   "Nivel": "a",
+   "RMSE media": 24.7185,
+   "RMSE d.e.": 1.1428,
+   "MAE media": 19.2706,
+   "MAE d.e.": 0.8638,
+   "MAPE % media": 8.5704,
+   "MAPE % d.e.": 0.3746,
+   "R² media": -0.0051,
+   "R² d.e.": 0.0063,
+   "Tiempo medio de entrenamiento (s)": 0.0041,
+   "tiempo_total_s": 0.0037,
+   "prueba_rmse": 21.8625,
+   "prueba_mae": 17.2795,
+   "prueba_mape": 7.7718,
+   "prueba_r2": -0.0007
+  }
+ ],
+ "ablacion": [
+  {
+   "Conjunto de variables": "Variables originales, sin selección",
+   "Variables": 11,
+   "RMSE media": 16.9707,
+   "RMSE d.e.": 0.7697,
+   "R² media": 0.5244,
+   "R² d.e.": 0.0435,
+   "ΔRMSE frente al final (media)": 1.2626,
+   "ΔRMSE d.e.": 0.6183
+  },
+  {
+   "Conjunto de variables": "Variables originales seleccionadas",
+   "Variables": 8,
+   "RMSE media": 17.0279,
+   "RMSE d.e.": 0.7996,
+   "R² media": 0.5201,
+   "R² d.e.": 0.055,
+   "ΔRMSE frente al final (media)": 1.3198,
+   "ΔRMSE d.e.": 0.4389
+  },
+  {
+   "Conjunto de variables": "Originales + creadas, seleccionadas (final)",
+   "Variables": 16,
+   "RMSE media": 15.7081,
+   "RMSE d.e.": 0.6435,
+   "R² media": 0.592,
+   "R² d.e.": 0.0416,
+   "ΔRMSE frente al final (media)": 0.0,
+   "ΔRMSE d.e.": 0.0
+  }
+ ],
+ "suma_contexto": [
+  {
+   "Grupo quitado": "Socioeconómico",
+   "Variables quitadas": "pct_estrato_0a2, pct_internet, pct_computador, pct_oficial, pct_mujer",
+   "RMSE sin el grupo": 18.6022,
+   "Aumento del RMSE (media)": 2.8941,
+   "Aumento del RMSE (d.e.)": 0.8242,
+   "Caída del R² (media)": 0.1636,
+   "Caída del R² (d.e.)": 0.0475,
+   "Particiones en que empeora": 15
+  },
+  {
+   "Grupo quitado": "Territorio",
+   "Variables quitadas": "pct_viviendas_rurales, region_Amazonía, region_Caribe, region_Pacífica",
+   "RMSE sin el grupo": 17.0201,
+   "Aumento del RMSE (media)": 1.312,
+   "Aumento del RMSE (d.e.)": 0.4168,
+   "Caída del R² (media)": 0.0716,
+   "Caída del R² (d.e.)": 0.0265,
+   "Particiones en que empeora": 15
+  },
+  {
+   "Grupo quitado": "Escuela",
+   "Variables quitadas": "n_sedes",
+   "RMSE sin el grupo": 16.0773,
+   "Aumento del RMSE (media)": 0.3692,
+   "Aumento del RMSE (d.e.)": 0.4854,
+   "Caída del R² (media)": 0.0193,
+   "Caída del R² (d.e.)": 0.0271,
+   "Particiones en que empeora": 11
+  },
+  {
+   "Grupo quitado": "Tiempo",
+   "Variables quitadas": "pandemia",
+   "RMSE sin el grupo": 15.9506,
+   "Aumento del RMSE (media)": 0.2425,
+   "Aumento del RMSE (d.e.)": 0.4608,
+   "Caída del R² (media)": 0.0124,
+   "Caída del R² (d.e.)": 0.0249,
+   "Particiones en que empeora": 9
+  },
+  {
+   "Grupo quitado": "Energía",
+   "Variables quitadas": "icee_rural, icee_urbano, log_vss_rural, icee_prom_movil_2a, conectividad_efectiva",
+   "RMSE sin el grupo": 15.7581,
+   "Aumento del RMSE (media)": 0.05,
+   "Aumento del RMSE (d.e.)": 0.3326,
+   "Caída del R² (media)": 0.0028,
+   "Caída del R² (d.e.)": 0.0172,
+   "Particiones en que empeora": 8
+  }
+ ],
+ "aporte_energia": [
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "Variables de control": "Controles socioeconómicos",
+   "RMSE sin energía": 20.1496,
+   "RMSE con energía": 19.0146,
+   "Mejora del RMSE (media)": 1.135,
+   "Mejora del RMSE (d.e.)": 0.9453,
+   "ΔR² (media)": 0.0767,
+   "Particiones en que mejora": 14
+  },
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "Variables de control": "+ territorio (región y ruralidad)",
+   "RMSE sin energía": 17.4257,
+   "RMSE con energía": 17.4699,
+   "Mejora del RMSE (media)": -0.0442,
+   "Mejora del RMSE (d.e.)": 0.3223,
+   "ΔR² (media)": -0.002,
+   "Particiones en que mejora": 9
+  },
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "Variables de control": "+ conectividad del hogar",
+   "RMSE sin energía": 17.2422,
+   "RMSE con energía": 16.9809,
+   "Mejora del RMSE (media)": 0.2613,
+   "Mejora del RMSE (d.e.)": 0.4297,
+   "ΔR² (media)": 0.0142,
+   "Particiones en que mejora": 12
+  },
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "Variables de control": "+ territorio y conectividad (todo)",
+   "RMSE sin energía": 15.7589,
+   "RMSE con energía": 15.7224,
+   "Mejora del RMSE (media)": 0.0365,
+   "Mejora del RMSE (d.e.)": 0.3344,
+   "ΔR² (media)": 0.0013,
+   "Particiones en que mejora": 9
+  },
+  {
+   "Modelo": "Regresión lineal",
+   "Variables de control": "Controles socioeconómicos",
+   "RMSE sin energía": 21.5538,
+   "RMSE con energía": 20.4032,
+   "Mejora del RMSE (media)": 1.1505,
+   "Mejora del RMSE (d.e.)": 0.2643,
+   "ΔR² (media)": 0.0802,
+   "Particiones en que mejora": 15
+  },
+  {
+   "Modelo": "Regresión lineal",
+   "Variables de control": "+ territorio (región y ruralidad)",
+   "RMSE sin energía": 19.5828,
+   "RMSE con energía": 19.3734,
+   "Mejora del RMSE (media)": 0.2094,
+   "Mejora del RMSE (d.e.)": 0.1374,
+   "ΔR² (media)": 0.0137,
+   "Particiones en que mejora": 14
+  },
+  {
+   "Modelo": "Regresión lineal",
+   "Variables de control": "+ conectividad del hogar",
+   "RMSE sin energía": 18.3465,
+   "RMSE con energía": 18.0363,
+   "Mejora del RMSE (media)": 0.3103,
+   "Mejora del RMSE (d.e.)": 0.2019,
+   "ΔR² (media)": 0.019,
+   "Particiones en que mejora": 14
+  },
+  {
+   "Modelo": "Regresión lineal",
+   "Variables de control": "+ territorio y conectividad (todo)",
+   "RMSE sin energía": 17.6816,
+   "RMSE con energía": 17.5365,
+   "Mejora del RMSE (media)": 0.145,
+   "Mejora del RMSE (d.e.)": 0.1603,
+   "ΔR² (media)": 0.0087,
+   "Particiones en que mejora": 12
+  }
+ ],
+ "variables_energia": [
+  "icee_rural",
+  "icee_urbano",
+  "log_vss_rural",
+  "icee_prom_movil_2a"
+ ],
+ "importancia_permutacion": [
+  {
+   "Variable": "pct_estrato_0a2",
+   "Grupo": "Socioeconómico",
+   "Aumento del RMSE al permutar": 3.1893,
+   "d.e.": 0.3926
+  },
+  {
+   "Variable": "pct_internet",
+   "Grupo": "Socioeconómico",
+   "Aumento del RMSE al permutar": 2.8531,
+   "d.e.": 0.2711
+  },
+  {
+   "Variable": "region_Pacífica",
+   "Grupo": "Territorio",
+   "Aumento del RMSE al permutar": 2.1472,
+   "d.e.": 0.2977
+  },
+  {
+   "Variable": "pct_computador",
+   "Grupo": "Socioeconómico",
+   "Aumento del RMSE al permutar": 2.0007,
+   "d.e.": 0.2205
+  },
+  {
+   "Variable": "n_sedes",
+   "Grupo": "Escuela",
+   "Aumento del RMSE al permutar": 0.8002,
+   "d.e.": 0.1176
+  },
+  {
+   "Variable": "region_Caribe",
+   "Grupo": "Territorio",
+   "Aumento del RMSE al permutar": 0.7392,
+   "d.e.": 0.1519
+  },
+  {
+   "Variable": "pct_mujer",
+   "Grupo": "Socioeconómico",
+   "Aumento del RMSE al permutar": 0.5202,
+   "d.e.": 0.1904
+  },
+  {
+   "Variable": "icee_rural",
+   "Grupo": "Energía",
+   "Aumento del RMSE al permutar": 0.5166,
+   "d.e.": 0.1526
+  },
+  {
+   "Variable": "pct_viviendas_rurales",
+   "Grupo": "Territorio",
+   "Aumento del RMSE al permutar": 0.4473,
+   "d.e.": 0.1626
+  },
+  {
+   "Variable": "log_vss_rural",
+   "Grupo": "Energía",
+   "Aumento del RMSE al permutar": 0.4236,
+   "d.e.": 0.1824
+  },
+  {
+   "Variable": "region_Amazonía",
+   "Grupo": "Territorio",
+   "Aumento del RMSE al permutar": 0.358,
+   "d.e.": 0.1347
+  },
+  {
+   "Variable": "pandemia",
+   "Grupo": "Tiempo",
+   "Aumento del RMSE al permutar": 0.2431,
+   "d.e.": 0.1308
+  },
+  {
+   "Variable": "icee_prom_movil_2a",
+   "Grupo": "Energía",
+   "Aumento del RMSE al permutar": 0.1347,
+   "d.e.": 0.1116
+  },
+  {
+   "Variable": "pct_oficial",
+   "Grupo": "Socioeconómico",
+   "Aumento del RMSE al permutar": 0.1346,
+   "d.e.": 0.1006
+  },
+  {
+   "Variable": "icee_urbano",
+   "Grupo": "Energía",
+   "Aumento del RMSE al permutar": -0.0025,
+   "d.e.": 0.0692
+  },
+  {
+   "Variable": "conectividad_efectiva",
+   "Grupo": "Energía",
+   "Aumento del RMSE al permutar": -0.0482,
+   "d.e.": 0.086
+  }
+ ],
+ "top3": [
+  "Red neuronal (MLP)",
+  "SVR",
+  "HistGradientBoosting"
+ ],
+ "alternativas": [
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "Nivel": "d",
+   "RMSE media": 15.7081,
+   "RMSE d.e.": 0.6435,
+   "MAE media": 12.0692,
+   "MAE d.e.": 0.5731,
+   "MAPE % media": 5.3992,
+   "MAPE % d.e.": 0.2844,
+   "R² media": 0.592,
+   "R² d.e.": 0.0416,
+   "Tiempo medio de entrenamiento (s)": 0.1935,
+   "prueba_rmse": 15.5737,
+   "prueba_mae": 12.0034,
+   "prueba_mape": 5.3188,
+   "prueba_r2": 0.4922
+  },
+  {
+   "Modelo": "Stacking (Red neuronal (MLP), SVR, HistGradientBoosting)",
+   "Nivel": "c",
+   "RMSE media": 15.447,
+   "RMSE d.e.": 0.904,
+   "MAE media": 11.9032,
+   "MAE d.e.": 0.6968,
+   "MAPE % media": 5.3177,
+   "MAPE % d.e.": 0.3538,
+   "R² media": 0.6057,
+   "R² d.e.": 0.043,
+   "Tiempo medio de entrenamiento (s)": 2.7808,
+   "prueba_rmse": 15.5072,
+   "prueba_mae": 11.8783,
+   "prueba_mape": 5.2575,
+   "prueba_r2": 0.4965
+  },
+  {
+   "Modelo": "Votación (Red neuronal (MLP), SVR, HistGradientBoosting)",
+   "Nivel": "c",
+   "RMSE media": 15.3302,
+   "RMSE d.e.": 0.7888,
+   "MAE media": 11.7651,
+   "MAE d.e.": 0.6164,
+   "MAPE % media": 5.2696,
+   "MAPE % d.e.": 0.3141,
+   "R² media": 0.6115,
+   "R² d.e.": 0.0417,
+   "Tiempo medio de entrenamiento (s)": 0.7682,
+   "prueba_rmse": 15.1434,
+   "prueba_mae": 11.6447,
+   "prueba_mape": 5.1615,
+   "prueba_r2": 0.5199
+  }
+ ],
+ "estabilidad_orden": [
+  {
+   "Modelo": "Red neuronal (MLP)",
+   "RMSE semillas 42–44": 15.7081,
+   "Puesto 42–44": 1,
+   "RMSE semillas 52–54": 15.7353,
+   "Puesto 52–54": 1,
+   "RMSE temporal (2022)": 19.2721,
+   "Puesto temporal": 8
+  },
+  {
+   "Modelo": "SVR",
+   "RMSE semillas 42–44": 15.777,
+   "Puesto 42–44": 2,
+   "RMSE semillas 52–54": 15.7663,
+   "Puesto 52–54": 2,
+   "RMSE temporal (2022)": 17.4545,
+   "Puesto temporal": 5
+  },
+  {
+   "Modelo": "HistGradientBoosting",
+   "RMSE semillas 42–44": 15.7905,
+   "Puesto 42–44": 3,
+   "RMSE semillas 52–54": 15.7863,
+   "Puesto 52–54": 3,
+   "RMSE temporal (2022)": 17.0737,
+   "Puesto temporal": 2
+  },
+  {
+   "Modelo": "Random Forest",
+   "RMSE semillas 42–44": 16.1551,
+   "Puesto 42–44": 4,
+   "RMSE semillas 52–54": 16.1743,
+   "Puesto 52–54": 4,
+   "RMSE temporal (2022)": 17.1607,
+   "Puesto temporal": 3
+  },
+  {
+   "Modelo": "KNN",
+   "RMSE semillas 42–44": 16.6026,
+   "Puesto 42–44": 5,
+   "RMSE semillas 52–54": 16.6591,
+   "Puesto 52–54": 5,
+   "RMSE temporal (2022)": 16.7339,
+   "Puesto temporal": 1
+  },
+  {
+   "Modelo": "Ridge",
+   "RMSE semillas 42–44": 17.5225,
+   "Puesto 42–44": 6,
+   "RMSE semillas 52–54": 17.5837,
+   "Puesto 52–54": 6,
+   "RMSE temporal (2022)": 17.4147,
+   "Puesto temporal": 4
+  },
+  {
+   "Modelo": "Lasso",
+   "RMSE semillas 42–44": 17.5361,
+   "Puesto 42–44": 7,
+   "RMSE semillas 52–54": 17.5972,
+   "Puesto 52–54": 7,
+   "RMSE temporal (2022)": 17.4769,
+   "Puesto temporal": 6
+  },
+  {
+   "Modelo": "Regresión lineal",
+   "RMSE semillas 42–44": 17.5365,
+   "Puesto 42–44": 8,
+   "RMSE semillas 52–54": 17.5974,
+   "Puesto 52–54": 8,
+   "RMSE temporal (2022)": 17.4852,
+   "Puesto temporal": 7
+  },
+  {
+   "Modelo": "Árbol de decisión",
+   "RMSE semillas 42–44": 17.9241,
+   "Puesto 42–44": 9,
+   "RMSE semillas 52–54": 18.3987,
+   "Puesto 52–54": 9,
+   "RMSE temporal (2022)": 20.5367,
+   "Puesto temporal": 9
+  },
+  {
+   "Modelo": "Línea base (promedio)",
+   "RMSE semillas 42–44": 24.7185,
+   "Puesto 42–44": 10,
+   "RMSE semillas 52–54": 24.6626,
+   "Puesto 52–54": 10,
+   "RMSE temporal (2022)": 22.6605,
+   "Puesto temporal": 10
+  }
+ ],
+ "rho_orden_semillas": 1.0,
+ "rho_orden_temporal": 0.503,
+ "sensibilidad_imputacion_modelo": [
+  {
+   "Imputador": "KNN (5 vecinos)",
+   "RMSE media": 16.039,
+   "RMSE d.e.": 0.6227,
+   "R² media": 0.5747,
+   "R² d.e.": 0.0424,
+   "Sin ocultar (referencia)": 15.7081
+  },
+  {
+   "Imputador": "Mediana",
+   "RMSE media": 16.0953,
+   "RMSE d.e.": 0.5547,
+   "R² media": 0.5717,
+   "R² d.e.": 0.0412,
+   "Sin ocultar (referencia)": 15.7081
+  }
+ ],
+ "sensibilidad_dif_mediana_menos_knn": {
+  "media": 0.0562,
+  "de": 0.3635,
+  "particiones_knn_mejor": 11
+ },
+ "metricas_por_particion_filas": 180,
+ "panel_fe_obs": 2582,
+ "panel_fe_municipios": 881,
+ "icee_de_dentro": 8.726,
+ "icee_de_total": 26.78,
+ "icee_pct_municipios_sin_cambio": 33.0,
+ "modelos_panel": [
+  {
+   "Modelo": "A · Agrupado: año + controles (modelo del KPI 6)",
+   "Errores agrupados por": "Municipio",
+   "Coef. ICEE (puntos por 10 p.p.)": 2.4662,
+   "Error estándar": 0.197,
+   "IC 95 % inf.": 2.0795,
+   "IC 95 % sup.": 2.8529,
+   "p": 0.0,
+   "R²": 0.3191,
+   "Observaciones": 2627,
+   "Grupos": 926
+  },
+  {
+   "Modelo": "A · Agrupado: año + región + controles",
+   "Errores agrupados por": "Municipio",
+   "Coef. ICEE (puntos por 10 p.p.)": 0.8076,
+   "Error estándar": 0.2341,
+   "IC 95 % inf.": 0.3482,
+   "IC 95 % sup.": 1.267,
+   "p": 0.0006,
+   "R²": 0.4037,
+   "Observaciones": 2627,
+   "Grupos": 926
+  },
+  {
+   "Modelo": "A · Agrupado: año + región + controles",
+   "Errores agrupados por": "Departamento",
+   "Coef. ICEE (puntos por 10 p.p.)": 0.8076,
+   "Error estándar": 0.6419,
+   "IC 95 % inf.": -0.5,
+   "IC 95 % sup.": 2.1152,
+   "p": 0.2175,
+   "R²": 0.4037,
+   "Observaciones": 2627,
+   "Grupos": 33
+  },
+  {
+   "Modelo": "B · Efectos fijos de municipio y año + controles",
+   "Errores agrupados por": "Municipio",
+   "Coef. ICEE (puntos por 10 p.p.)": 0.2236,
+   "Error estándar": 0.1851,
+   "IC 95 % inf.": -0.1397,
+   "IC 95 % sup.": 0.5868,
+   "p": 0.2274,
+   "R²": 0.0878,
+   "Observaciones": 2582,
+   "Grupos": 881
+  },
+  {
+   "Modelo": "B · Efectos fijos de municipio y año + controles",
+   "Errores agrupados por": "Departamento",
+   "Coef. ICEE (puntos por 10 p.p.)": 0.2236,
+   "Error estándar": 0.2035,
+   "IC 95 % inf.": -0.1909,
+   "IC 95 % sup.": 0.6381,
+   "p": 0.2801,
+   "R²": 0.0878,
+   "Observaciones": 2582,
+   "Grupos": 33
+  }
+ ],
+ "h4_h6": [
+  {
+   "Hipótesis": "H4",
+   "Pregunta": "¿El ICEE rural se asocia al puntaje dentro del mismo municipio? (coeficiente ≠ 0)",
+   "Modelo": "B · efectos fijos",
+   "Estadístico": "t = 1,21",
+   "gl": 880,
+   "p": 0.2274,
+   "p ajustado (Holm)": 0.4548,
+   "Decisión": "No se rechaza H0"
+  },
+  {
+   "Hipótesis": "H5",
+   "Pregunta": "¿La asociación cambia entre 2019, 2020 y 2022? (ICEE × año)",
+   "Modelo": "B · efectos fijos",
+   "Estadístico": "F = 0,79",
+   "gl": "2 y 880",
+   "p": 0.4541,
+   "p ajustado (Holm)": 0.4548,
+   "Decisión": "No se rechaza H0"
+  },
+  {
+   "Hipótesis": "H6",
+   "Pregunta": "¿La asociación cambia entre regiones? (ICEE × región)",
+   "Modelo": "A · agrupado",
+   "Estadístico": "F = 4,06",
+   "gl": "4 y 925",
+   "p": 0.0029,
+   "p ajustado (Holm)": 0.0086,
+   "Decisión": "Se rechaza H0"
+  }
+ ],
+ "h6_en_efectos_fijos": {
+  "F": 2.771,
+  "p": 0.0263
+ },
+ "pendiente_por_region": [
+  {
+   "Región": "Andina",
+   "n": 1371,
+   "Pendiente (puntos por 10 p.p.)": -0.0697,
+   "Error estándar": 0.5116,
+   "IC 95 % inf.": -1.0737,
+   "IC 95 % sup.": 0.9343,
+   "p": 0.8917,
+   "p ajustado (Holm)": 1.0
+  },
+  {
+   "Región": "Amazonía",
+   "n": 124,
+   "Pendiente (puntos por 10 p.p.)": 1.4574,
+   "Error estándar": 0.5324,
+   "IC 95 % inf.": 0.4126,
+   "IC 95 % sup.": 2.5023,
+   "p": 0.0063,
+   "p ajustado (Holm)": 0.0252
+  },
+  {
+   "Región": "Caribe",
+   "n": 510,
+   "Pendiente (puntos por 10 p.p.)": 1.4831,
+   "Error estándar": 0.271,
+   "IC 95 % inf.": 0.9513,
+   "IC 95 % sup.": 2.0149,
+   "p": 0.0,
+   "p ajustado (Holm)": 0.0
+  },
+  {
+   "Región": "Orinoquía",
+   "n": 131,
+   "Pendiente (puntos por 10 p.p.)": 2.3647,
+   "Error estándar": 0.9197,
+   "IC 95 % inf.": 0.5597,
+   "IC 95 % sup.": 4.1696,
+   "p": 0.0103,
+   "p ajustado (Holm)": 0.0309
+  },
+  {
+   "Región": "Pacífica",
+   "n": 491,
+   "Pendiente (puntos por 10 p.p.)": -0.338,
+   "Error estándar": 0.5718,
+   "IC 95 % inf.": -1.4602,
+   "IC 95 % sup.": 0.7841,
+   "p": 0.5546,
+   "p ajustado (Holm)": 1.0
+  }
+ ],
+ "criterio_exito": [
+  {
+   "Parte del criterio": "|ρ| ≥ 0,10 con IC 95 % que excluye el cero en al menos 2 de 3 años (H1)",
+   "Resultado": "3 de 3 años",
+   "¿Se cumple?": "Sí"
+  },
+  {
+   "Parte del criterio": "ΔR² del ICEE ≥ 0,02 sobre los controles (KPI 6)",
+   "Resultado": "ΔR² = 0,0730",
+   "¿Se cumple?": "Sí"
+  },
+  {
+   "Parte del criterio": "… con p < 0,05 tras la corrección de Holm (errores agrupados por municipio)",
+   "Resultado": "p ajustado < 0,001",
+   "¿Se cumple?": "Sí"
+  }
+ ],
+ "delta_r2_panel": 0.073,
+ "delta_r2_p_holm": 1.0302109212634967e-32,
+ "moran_residuos_panel": [
+  {
+   "Año": 2019,
+   "I de Moran de los residuos del modelo A": 0.328,
+   "p (999 permutaciones)": 0.001
+  },
+  {
+   "Año": 2020,
+   "I de Moran de los residuos del modelo A": 0.284,
+   "p (999 permutaciones)": 0.001
+  },
+  {
+   "Año": 2022,
+   "I de Moran de los residuos del modelo A": 0.292,
+   "p (999 permutaciones)": 0.001
+  }
+ ],
+ "validacion_tablero": [
+  {
+   "Control": "Filas municipio–año",
+   "Modelo (SQL)": 2627.0,
+   "Tablero (datos de la página)": 2627.0,
+   "Diferencia": 0.0
+  },
+  {
+   "Control": "Municipios",
+   "Modelo (SQL)": 926.0,
+   "Tablero (datos de la página)": 926.0,
+   "Diferencia": 0.0
+  },
+  {
+   "Control": "Estudiantes rurales",
+   "Modelo (SQL)": 242126.0,
+   "Tablero (datos de la página)": 242126.0,
+   "Diferencia": 0.0
+  },
+  {
+   "Control": "KPI 4 · Diferencia Alta − Baja",
+   "Modelo (SQL)": 16.0686,
+   "Tablero (datos de la página)": 16.0686,
+   "Diferencia": 0.0
+  },
+  {
+   "Control": "KPI 5 · ρ de Spearman",
+   "Modelo (SQL)": 0.3008,
+   "Tablero (datos de la página)": 0.3008,
+   "Diferencia": 0.0
+  }
+ ],
+ "tablero_sin_filtros": {
+  "kpi1": 228.97,
+  "kpi2": 29.64,
+  "kpi3": 77.47,
+  "kpi4": 16.07,
+  "kpi5": 0.301
+ },
+ "tablero_municipios_foco": 321,
+ "controles_powerbi": [
+  {
+   "Control": "Estudiantes en hechos_saber11_agregado",
+   "Valor esperado": 1407776.0
+  },
+  {
+   "Control": "Filas de panel_rural",
+   "Valor esperado": 2627.0
+  },
+  {
+   "Control": "Estudiantes rurales en panel_rural",
+   "Valor esperado": 242126.0
+  },
+  {
+   "Control": "KPI 1 puntaje rural 2019",
+   "Valor esperado": 228.52
+  },
+  {
+   "Control": "KPI 1 puntaje rural 2020",
+   "Valor esperado": 228.45
+  },
+  {
+   "Control": "KPI 1 puntaje rural 2022",
+   "Valor esperado": 229.79
+  },
+  {
+   "Control": "KPI 2 brecha urbano–rural 2019",
+   "Valor esperado": 28.98
+  },
+  {
+   "Control": "KPI 2 brecha urbano–rural 2020",
+   "Valor esperado": 28.44
+  },
+  {
+   "Control": "KPI 2 brecha urbano–rural 2022",
+   "Valor esperado": 29.84
+  },
+  {
+   "Control": "KPI 3 ICEE rural nacional 2019",
+   "Valor esperado": 76.13
+  },
+  {
+   "Control": "KPI 3 ICEE rural nacional 2020",
+   "Valor esperado": 75.09
+  },
+  {
+   "Control": "KPI 3 ICEE rural nacional 2022",
+   "Valor esperado": 80.56
+  },
+  {
+   "Control": "KPI 4 diferencia Alta − Baja (panel, 2019–2022)",
+   "Valor esperado": 16.07
+  }
+ ],
+ "experimentos_filas_aca2": 15,
+ "fecha_ejecucion": "2026-11-22T18:58:42",
+ "semilla": 42,
+ "tiempo_ejecucion_s": 352.7
+}

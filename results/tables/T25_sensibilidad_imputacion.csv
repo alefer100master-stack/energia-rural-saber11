@@ -1,0 +1,4 @@
+﻿Escenario,Coeficiente del ICEE (puntos por 10 p.p.),R² del modelo,ΔR² del ICEE
+Datos completos (referencia),2.4662,0.3191,0.073
+Relleno con la mediana,2.5488,0.2779,0.0783
+Relleno con KNN (5 vecinos),2.4647,0.3136,0.0728

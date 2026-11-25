@@ -1,0 +1,17 @@
+﻿Variable,Grupo,Aumento del RMSE al permutar,d.e.
+pct_estrato_0a2,Socioeconómico,3.1893,0.3926
+pct_internet,Socioeconómico,2.8531,0.2711
+region_Pacífica,Territorio,2.1472,0.2977
+pct_computador,Socioeconómico,2.0007,0.2205
+n_sedes,Escuela,0.8002,0.1176
+region_Caribe,Territorio,0.7392,0.1519
+pct_mujer,Socioeconómico,0.5202,0.1904
+icee_rural,Energía,0.5166,0.1526
+pct_viviendas_rurales,Territorio,0.4473,0.1626
+log_vss_rural,Energía,0.4236,0.1824
+region_Amazonía,Territorio,0.358,0.1347
+pandemia,Tiempo,0.2431,0.1308
+icee_prom_movil_2a,Energía,0.1347,0.1116
+pct_oficial,Socioeconómico,0.1346,0.1006
+icee_urbano,Energía,-0.0025,0.0692
+conectividad_efectiva,Energía,-0.0482,0.086

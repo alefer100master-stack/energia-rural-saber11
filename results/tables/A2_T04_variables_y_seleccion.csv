@@ -1,0 +1,27 @@
+﻿Variable,Origen,Grupo,Fórmula,Justificación,% faltantes,Información mutua,Estabilidad LASSO,Rango IM,Queda
+icee_rural,Original,Energía,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.097,0.2,10,Sí
+icee_urbano,Original,Energía,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.023,0.87,21,Sí
+vt_rural,Original,Territorio,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.052,0.2,14,No
+pct_estrato_0a2,Original,Socioeconómico,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.212,0.93,3,Sí
+pct_madre_media,Original,Socioeconómico,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.135,0.0,6,No
+pct_internet,Original,Socioeconómico,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.194,0.93,4,Sí
+pct_computador,Original,Socioeconómico,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.235,1.0,1,Sí
+pct_oficial,Original,Socioeconómico,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.148,1.0,5,Sí
+pct_mujer,Original,Socioeconómico,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.03,0.93,18,Sí
+n_estudiantes,Original,Escuela,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.025,0.2,20,No
+n_sedes,Original,Escuela,"Medida original de la fuente, agregada por municipio y año",Variable de dominio del ACA 1,0.0,0.019,0.93,22,Sí
+brecha_icee_urb_rur,Creada,Energía,ICEE urbano − ICEE rural,Desigualdad de cobertura dentro del municipio (ACA 1),0.0,0.096,0.0,11,No
+log_vss_rural,Creada,Energía,ln(1 + viviendas rurales sin servicio),Magnitud absoluta del déficit; el logaritmo reduce la asimetría (ACA 1),0.0,0.091,0.93,12,Sí
+pct_viviendas_rurales,Creada,Territorio,100 × VT rural / VT total,Grado de ruralidad del municipio (ACA 1),0.0,0.117,0.87,9,Sí
+grupo_icee_ord,Creada,Energía,0 si ICEE < 70; 1 si 70 ≤ ICEE < 95; 2 si ICEE ≥ 95,"Banda de cobertura del protocolo, codificada como ordinal",0.0,0.067,0.13,13,No
+icee_prom_movil_2a,Creada,Energía,Promedio del ICEE rural de t y t − 1 (en 2019 solo t),Ventana móvil: la cobertura acumulada pesa más que la de un solo año,0.0,0.13,0.93,7,Sí
+variacion_icee_desde_2019,Creada,Energía,ICEE rural(t) − ICEE rural(2019),"Rezago: cambio de la cobertura frente al año base, sin mirar el futuro",0.0,0.039,0.2,16,No
+conectividad_efectiva,Creada,Energía,ICEE rural / 100 × % con internet,"La luz habilita la conectividad (V de Cramér 0,196 en el ACA 1)",0.0,0.218,1.0,2,Sí
+log_n_estudiantes,Creada,Escuela,ln(estudiantes rurales evaluados),Tamaño del municipio rural; reduce la asimetría del conteo,0.0,0.029,0.67,19,No
+estudiantes_por_sede,Creada,Escuela,Estudiantes rurales / sedes rurales,Tamaño medio de las sedes: escuelas dispersas frente a concentradas,0.0,0.035,0.27,17,No
+region_Amazonía,Creada,Territorio,1 si la región es Amazonía (one-hot; Andina = referencia),Codificación de la categórica región (heterogeneidad del ACA 1),0.0,0.016,0.93,23,Sí
+region_Caribe,Creada,Territorio,1 si la región es Caribe,Codificación de la categórica región,0.0,0.125,1.0,8,Sí
+region_Orinoquía,Creada,Territorio,1 si la región es Orinoquía,Codificación de la categórica región,0.0,0.001,0.4,26,No
+region_Pacífica,Creada,Territorio,1 si la región es Pacífica,Codificación de la categórica región,0.0,0.051,0.93,15,Sí
+pandemia,Creada,Tiempo,1 si el año es 2020,Variable de calendario: año de pandemia (referencia 2019),0.0,0.009,0.93,24,Sí
+post_pandemia,Creada,Tiempo,1 si el año es 2022,Variable de calendario: año pospandemia (referencia 2019),0.0,0.005,0.0,25,No

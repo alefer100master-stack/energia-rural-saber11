@@ -1,0 +1,4 @@
+﻿Modelo,Nivel,RMSE media,RMSE d.e.,MAE media,MAE d.e.,MAPE % media,MAPE % d.e.,R² media,R² d.e.,Tiempo medio de entrenamiento (s),prueba_rmse,prueba_mae,prueba_mape,prueba_r2
+Red neuronal (MLP),d,15.7081,0.6435,12.0692,0.5731,5.3992,0.2844,0.592,0.0416,0.1935,15.5737,12.0034,5.3188,0.4922
+"Stacking (Red neuronal (MLP), SVR, HistGradientBoosting)",c,15.447,0.904,11.9032,0.6968,5.3177,0.3538,0.6057,0.043,2.7808,15.5072,11.8783,5.2575,0.4965
+"Votación (Red neuronal (MLP), SVR, HistGradientBoosting)",c,15.3302,0.7888,11.7651,0.6164,5.2696,0.3141,0.6115,0.0417,0.7682,15.1434,11.6447,5.1615,0.5199

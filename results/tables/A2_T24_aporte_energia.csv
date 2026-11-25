@@ -1,0 +1,9 @@
+﻿Modelo,Variables de control,RMSE sin energía,RMSE con energía,Mejora del RMSE (media),Mejora del RMSE (d.e.),ΔR² (media),Particiones en que mejora
+Red neuronal (MLP),Controles socioeconómicos,20.1496,19.0146,1.135,0.9453,0.0767,14
+Red neuronal (MLP),+ territorio (región y ruralidad),17.4257,17.4699,-0.0442,0.3223,-0.002,9
+Red neuronal (MLP),+ conectividad del hogar,17.2422,16.9809,0.2613,0.4297,0.0142,12
+Red neuronal (MLP),+ territorio y conectividad (todo),15.7589,15.7224,0.0365,0.3344,0.0013,9
+Regresión lineal,Controles socioeconómicos,21.5538,20.4032,1.1505,0.2643,0.0802,15
+Regresión lineal,+ territorio (región y ruralidad),19.5828,19.3734,0.2094,0.1374,0.0137,14
+Regresión lineal,+ conectividad del hogar,18.3465,18.0363,0.3103,0.2019,0.019,14
+Regresión lineal,+ territorio y conectividad (todo),17.6816,17.5365,0.145,0.1603,0.0087,12

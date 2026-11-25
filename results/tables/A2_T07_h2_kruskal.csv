@@ -1,0 +1,4 @@
+﻿Hipótesis,Grupo,n,H de Kruskal–Wallis,épsilon²,p,Mediana Baja,Mediana Media,Mediana Alta,p ajustado (Holm),Decisión
+H2,Año: 2019,870,101.9944,0.1153,0.0,215.4424,232.0278,234.0919,0.0,Se rechaza H0
+H2,Año: 2020,865,82.9688,0.0939,0.0,217.561,231.1034,232.2798,0.0,Se rechaza H0
+H2,Año: 2022,892,84.9422,0.0933,0.0,217.5658,232.9444,237.2063,0.0,Se rechaza H0

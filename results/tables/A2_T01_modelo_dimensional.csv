@@ -1,0 +1,8 @@
+﻿Tabla,Tipo,Grano,Llaves,Filas
+dim_municipio,Dimensión,Un municipio,id_municipio (PK),1123
+dim_tiempo,Dimensión,Un año (2019–2024),anio (PK),6
+dim_zona,Dimensión,Una zona (rural o urbana),id_zona (PK),2
+dim_banda_icee,Dimensión,Una banda de cobertura,id_banda (PK),3
+hechos_saber11,Hechos,Un estudiante evaluado,"id_evaluado (PK); id_municipio, anio, id_zona (FK)",1407776
+hechos_cobertura,Hechos,Un municipio en un año,id_municipio + anio (PK); id_banda (FK),6732
+vista_panel_rural,Vista,"Un municipio en un año, zona rural (≥10 estudiantes)",Une los dos hechos por id_municipio + anio,2627
