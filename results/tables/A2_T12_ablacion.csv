@@ -1,4 +1,4 @@
 ﻿Conjunto de variables,Variables,RMSE media,RMSE d.e.,R² media,R² d.e.,ΔRMSE frente al final (media),ΔRMSE d.e.
-"Variables originales, sin selección",11,16.9707,0.7697,0.5244,0.0435,1.2626,0.6183
-Variables originales seleccionadas,8,17.0279,0.7996,0.5201,0.055,1.3198,0.4389
-"Originales + creadas, seleccionadas (final)",16,15.7081,0.6435,0.592,0.0416,0.0,0.0
+"Variables originales, sin selección",11,16.9284,0.9765,0.4822,0.0726,1.1925,0.5689
+Variables originales seleccionadas,9,16.7758,0.8573,0.4914,0.0701,1.0399,0.535
+"Originales + creadas, seleccionadas (final)",17,15.7359,0.8822,0.554,0.0503,0.0,0.0

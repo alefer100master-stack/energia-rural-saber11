@@ -1,11 +1,13 @@
 ﻿Modelo,Nivel,Espacio de búsqueda,Combinaciones probadas,Mejores valores,RMSE de búsqueda,Tiempo de búsqueda (s)
-Línea base (promedio),a,Sin hiperparámetros,1,—,24.684,0.014
-Regresión lineal,a,Sin hiperparámetros,1,—,17.442,0.016
-Ridge,b,"alpha: loguniform(0.001, 1000.0)",20,alpha = 24.6583,17.432,0.408
-Lasso,b,"alpha: loguniform(0.0001, 10)",20,alpha = 0.0033,17.442,0.403
-KNN,b,"n_neighbors: randint(3, 60); weights: ['uniform', 'distance']; p: [1, 2]",20,n_neighbors = 17; p = 1; weights = distance,16.659,0.823
-SVR,b,"C: loguniform(0.05, 50); epsilon: uniform(0.01, 0.5); gamma: loguniform(0.001, 1)",20,C = 1.0457; epsilon = 0.071; gamma = 0.0306,15.886,5.74
-Árbol de decisión,b,"max_depth: randint(2, 13); min_samples_leaf: randint(5, 61)",20,max_depth = 8; min_samples_leaf = 15,18.185,0.602
-Random Forest,c,"n_estimators: randint(150, 501); max_depth: [None, 6, 8, 10, 14, 18]; min_samples_leaf: randint(1, 21); max_features: [0.3, 0.5, 0.7, 1.0, 'sqrt']",20,max_depth = 10; max_features = 0.5; min_samples_leaf = 1; n_estimators = 463,16.222,45.943
-HistGradientBoosting,c,"learning_rate: loguniform(0.01, 0.2); max_iter: randint(100, 601); max_leaf_nodes: randint(8, 65); min_samples_leaf: randint(10, 61); l2_regularization: uniform(0, 5)",20,l2_regularization = 0.7801; learning_rate = 0.016; max_iter = 430; max_leaf_nodes = 18; min_samples_leaf = 33,15.876,29.931
-Red neuronal (MLP),d,"hidden_layer_sizes: [(32,), (64,), (64, 32), (128, 64)]; alpha: loguniform(0.0, 0.1); learning_rate_init: loguniform(0.0001, 0.01)",20,"alpha = 0.0785; hidden_layer_sizes = (64, 32); learning_rate_init = 0.0008",15.823,21.867
+Línea base (promedio),a,Sin hiperparámetros,1,—,23.74,0.029
+Regresión lineal,a,Sin hiperparámetros,1,—,17.331,0.179
+Ridge,b,"alpha: loguniform(0.001, 1000.0)",20,alpha = 24.6583,17.312,0.737
+Lasso,b,"alpha: loguniform(0.0001, 10)",20,alpha = 0.0144,17.328,0.976
+KNN,b,"n_neighbors: randint(3, 60); weights: ['uniform', 'distance']; p: [1, 2]",20,n_neighbors = 17; p = 1; weights = distance,16.596,1.811
+SVR,b,"C: loguniform(0.05, 50); epsilon: uniform(0.01, 0.5); gamma: loguniform(0.001, 1)",20,C = 1.0457; epsilon = 0.071; gamma = 0.0306,15.805,8.191
+Árbol de decisión,b,"max_depth: randint(2, 13); min_samples_leaf: randint(5, 61)",20,max_depth = 12; min_samples_leaf = 28,18.166,1.492
+Random Forest,c,"n_estimators: randint(150, 501); max_depth: [None, 6, 8, 10, 14, 18]; min_samples_leaf: randint(1, 21); max_features: [0.3, 0.5, 0.7, 1.0, 'sqrt']",20,max_depth = 10; max_features = 0.5; min_samples_leaf = 1; n_estimators = 463,16.155,113.51
+HistGradientBoosting,c,"learning_rate: loguniform(0.01, 0.2); max_iter: randint(100, 601); max_leaf_nodes: randint(8, 65); min_samples_leaf: randint(10, 61); l2_regularization: uniform(0, 5)",20,l2_regularization = 1.4814; learning_rate = 0.0164; max_iter = 444; max_leaf_nodes = 14; min_samples_leaf = 18,15.95,53.761
+XGBoost,c,"n_estimators: randint(100, 601); learning_rate: loguniform(0.01, 0.2); max_depth: randint(2, 9); subsample: uniform(0.6, 0.4); colsample_bytree: uniform(0.6, 0.4); reg_lambda: loguniform(0.1, 10)",20,colsample_bytree = 0.7599; learning_rate = 0.0115; max_depth = 5; n_estimators = 563; reg_lambda = 0.2921; subsample = 0.6362,15.742,50.788
+LightGBM,c,"n_estimators: randint(100, 601); learning_rate: loguniform(0.01, 0.2); num_leaves: randint(8, 65); min_child_samples: randint(10, 61); subsample: uniform(0.6, 0.4); subsample_freq: [1]; colsample_bytree: uniform(0.6, 0.4); reg_lambda: loguniform(0.1, 10)",20,colsample_bytree = 0.7701; learning_rate = 0.0186; min_child_samples = 13; n_estimators = 409; num_leaves = 36; reg_lambda = 8.693; subsample = 0.9101; subsample_freq = 1,16.058,26.953
+Red neuronal (MLP),d,"hidden_layer_sizes: [(32,), (64,), (64, 32), (128, 64)]; alpha: loguniform(0.0, 0.1); learning_rate_init: loguniform(0.0001, 0.01)",20,"alpha = 0.0002; hidden_layer_sizes = (128, 64); learning_rate_init = 0.0026",15.585,53.008

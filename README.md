@@ -28,7 +28,7 @@ Evaluar la relación entre la cobertura de energía eléctrica rural de los muni
    - https://colab.research.google.com/github/alefer100master-stack/energia-rural-saber11/blob/v0.2/notebooks/ACA1_etapas_1_y_2.ipynb
    - https://colab.research.google.com/github/alefer100master-stack/energia-rural-saber11/blob/v0.2/notebooks/ACA2_etapas_2_y_3.ipynb
 2. La primera celda de código clona este repositorio en la etiqueta `v0.2`.
-3. Entorno de ejecución › Ejecutar todas. Corren de principio a fin con semilla fija (`SEED = 42`). El ACA2 tarda unos 6 minutos en CPU.
+3. Entorno de ejecución › Ejecutar todas. Corren de principio a fin con semilla fija (`SEED = 42`). El ACA2 tarda unos 16 minutos en CPU.
 4. Salidas del ACA2: `results/tables/` (prefijo `A2_`, `cifras_aca2.json` y `metricas_por_particion.csv`), `results/figures/` (prefijo `A2_`), `results/dashboard/tablero_aca2.html` (tablero: se abre con doble clic), `models/model_card.md` y filas nuevas en `results/experiments.csv`.
 
 Ninguna cifra del documento de grado se escribe a mano: todas salen de `results/tables/`.
@@ -37,11 +37,11 @@ Ninguna cifra del documento de grado se escribe a mano: todas salen de `results/
 - Modelo dimensional (esquema estrella en SQLite): 22 de 25 controles de totales dan diferencia cero contra la fuente; los demás son las diferencias que explica el ETL.
 - Objetivo 2: asociación ICEE rural – puntaje significativa en los tres años (ρ de 0,281 a 0,325, Holm p < 0,001); clara en Orinoquía, Caribe y Amazonía y nula en Andina y Pacífica.
 - Objetivo 3: entre municipios, +10 puntos porcentuales de ICEE ↔ +2,47 puntos de puntaje; ΔR² = 0,073. Dentro del mismo municipio no es significativa (H4: p = 0,23). La interacción ICEE × región es significativa (H6).
-- Batería de 10 modelos (validación 5 × 3 agrupada por municipio): mejor modelo Red neuronal (MLP), RMSE 15,71 ± 0,64 frente a 24,72 de la línea base; MAE 12,1 puntos.
+- Batería de 12 modelos (validación 5 × 3 agrupada por municipio): mejor modelo Red neuronal (MLP), RMSE 15,74 ± 0,88 frente a 23,67 de la línea base; MAE 12,2 puntos.
 
 ## Entorno de cómputo
 - Google Colab, CPU estándar (sin GPU). XGBoost y LightGBM se entrenan si están instalados (vienen en Colab).
-- Ejecución que generó `results/`: Python 3.13.18, pandas 3.0.5, scikit-learn 1.9.1, SciPy 1.18.1, Matplotlib 3.11.2; XGBoost no y LightGBM no disponibles; tiempo 353 s. Versiones de Colab en `requirements.txt`.
+- Ejecución que generó `results/`: Python 3.13.18, pandas 2.2.3, scikit-learn 1.6.1, SciPy 1.16.3, Matplotlib 3.10.0; XGBoost sí y LightGBM sí disponibles; tiempo 971 s. Versiones de Colab en `requirements.txt`.
 
 ## Estructura
 ```

@@ -1,3 +1,3 @@
 ﻿Imputador,RMSE media,RMSE d.e.,R² media,R² d.e.,Sin ocultar (referencia)
-KNN (5 vecinos),16.039,0.6227,0.5747,0.0424,15.7081
-Mediana,16.0953,0.5547,0.5717,0.0412,15.7081
+KNN (5 vecinos),15.8449,1.1002,0.5475,0.0594,15.7359
+Mediana,15.82,0.9019,0.5488,0.0543,15.7359
